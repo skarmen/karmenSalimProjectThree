@@ -13,3 +13,30 @@
 // Automatically move completed items to the bottom of the list
 // When a user clicks on the list item’s garbage icon, the item will be removed from the list
 // When a user clicks on the ‘Clear” btn at the bottom of the list the entire content of the list will be removed.
+
+// $(document).ready(
+//   function () {
+//     $('#button').click(
+//       function () {
+//         var toAdd = $('input[name=ListItem]').val();
+//         $('ol').append('<li>' + toAdd + '</li>');
+//       });
+
+//     $("input[name=ListItem]").keyup(function (event) {
+//       if (event.keyCode == 13) {
+//         $("#button").click();
+//       }
+//     });
+
+//     $(document).on('dblclick', 'li', function () {
+//       $(this).toggleClass('strike').fadeOut('slow');
+//     });
+
+//     $('input').focus(function () {
+//       $(this).val('');
+//     });
+
+//     $('ol').sortable();
+
+//   }
+// );

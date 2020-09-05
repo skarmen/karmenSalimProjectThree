@@ -4,8 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <!-- CSS Styles -->
+  <link rel="stylesheet" href="styles/styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
-  
+  <div class="wrapper">
+    <div class="main">
+      <h2>Goals List</h2>
+      <p><em>App description and instructions go here</em></p>
+
+      <form>
+        <label for="new-task" class="sr-only">New Task</label>
+        <input id="new-task" type="text" placeholder="New Task" name="new-task"/>
+        <button id="add-btn" class="btn">Add</button>
+      </form>
+
+      <div class="task-board-container">
+        <ol class="to-do-list">
+          <li><span class="delete"></span><input type="checkbox">Item 1</li>
+          <li><span class="delete"></span><input type="checkbox">Item 2</li>
+          <li><span class="delete"></span><input type="checkbox">Item 3</li>
+          <li><span class="delete"></span><input type="checkbox">Item 4</li>
+        </ol>
+      </div>
+      <!-- Task Board Container ENDS -->
+
+      <button id="clear-btn" class="btn">Clear</button>
+
+    </div>
+    <!-- Main Container ENDS -->
+  </div>
+  <!-- Wrapper ENDS -->
+
 </body>
 </html>
