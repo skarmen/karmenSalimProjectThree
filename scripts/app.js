@@ -113,11 +113,18 @@ $(document).ready(function (event) {
     })
   }
 
+  /* CLEAR ENTIRE LIST */
+  function clearList () {
+    $('#clear-btn').on('click', function () {
+      $('ol').empty()
+    })
+  }
 
   // Function Calls
   configureSubmitBehaviour()
   markItemAsCompleted()
   removeTask()
+  clearList()
 
 
 
