@@ -17,8 +17,10 @@
 
 $(document).ready(function (event) {
 
-  // SUBMIT FUNCTION
-  // listen to a click event on the submit btn and prevent the default behaviour of reloading the page
+  /* SUBMIT FUNCTION
+    - listen to a click event on submit & prevent the default behaviour of the submit event
+    - validate the userInput and add it to the list by calling (addTask f)
+  */
   function configureSubmitBehaviour () {
     $('#add-btn').on('click', function (e) {
       console.log('add btn was clicked')
@@ -30,48 +32,48 @@ $(document).ready(function (event) {
       // check if the input is valid
       if (userInput !== '') {
         addTask(userInput)
+      } else {
+        alert('Input cannot be empty. Please enter a valid task.')
       }
     })
   }
-  configureSubmitBehaviour()
-  // END OF SUBMIT FUNCTION
 
 
-  // ADD TASK FUNCTION
+  /* ADD TASK FUNCTION
+    - add the user input to the list
+    - clear the input field
+    - function is called upon submit
+  */
   function addTask(task) {
     // store userInput in a variable
     let userInput = $('input').val().trim() // $.trim has been deprecated in jquery 3.5
     console.log('userInput:', userInput)
-    // check if the input is valid
-    if (userInput !== '') {
 
-      // create an icon to remove an element from the list
-      let removeItemEl = '<span id="remove-item" class="remove-item">x(remove item)</span>'
+    // create an icon to remove an element from the list
+    let removeItemEl = '<span id="remove-item" class="remove-item">x(remove item)</span>'
 
-      // append the added element from the list
-      $('ol').append(`<li>${userInput} ${removeItemEl}</li>`);
+    // append the added element from the list
+    $('ol').append(`<li>${userInput} ${removeItemEl}</li>`);
 
-      // clear the input field once the item is appended to the list
-      $('input').val('')
+    // clear the input field once the item is appended to the list
+    $('input').val('')
 
-    } else {
-      alert('Input cannot be empty. Please enter a valid task.')
-    }
   }
-  // END OF ADD TASK FUNCTION
 
 
-  // MARK ITEM AS COMPLETED FUNCTION
-  // Task 2 - Manipulate the list items
-  // double click doesn't work consistently, i.e. consecutive double-clicks
-  // only work if you move the mouse in between them
-  function configureClickBehavior () {
+  /* MARK ITEM AS COMPLETED FUNCTION
+    - mark item as completed & move to the bottom of the list (call moveToBottom)
+    - configure the click behaviour
+  */
+  function markItemAsCompleted () {
+    // configure click behaviour
+    //double click doesn't work consistently, i.e. consecutive double-clicks
+    // only work if you move the mouse in between them
     let numClicks = 0
     $(document).on('click', 'li', function (e) {
       console.log('click this:', this)
       if (numClicks % 2) {
-        //onDoubleClick()
-        $(this).toggleClass('completed') //.fadeOut('slow');
+        $(this).toggleClass('completed')
 
         // store completed item in a variable
         let completedItem = $(this)
@@ -88,18 +90,21 @@ $(document).ready(function (event) {
       numClicks += 1;
     })
   }
-  configureClickBehavior()
-  // END OF MARK ITEM AS COMPLETED FUNCTION
+
+
 
   // MOVE COMPLETED ITEMS TO THE BOTTOM OF THE LIST
   function moveToBottom(item) {
-      item.fadeOut(function () {
+    item.fadeOut(function () {
       item.appendTo($('ol'))
       item.fadeIn()
     })
   }
 
 
+  // Function Calls
+  configureSubmitBehaviour()
+  markItemAsCompleted()
 
 
 
