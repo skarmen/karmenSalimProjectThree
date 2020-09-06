@@ -10,8 +10,8 @@
 // Clear the input field once the form is submitted by setting the input field value to ‘’ (empty quotes) once the form has been submitted - DONE
 
 // Task 2 - manipulate the tasks in the unordered list:
-// When a user clicks on the list item’s checkbox icon, the checkbox icon will change to clicked and / or the text color will be greyed out or scratched
-// Automatically move completed items to the bottom of the list
+// When a user clicks on the list item’s checkbox icon, the checkbox icon will change to clicked and / or the text color will be greyed out or scratched - DONE
+// Automatically move completed items to the bottom of the list - DONE
 // When a user clicks on the list item’s garbage icon, the item will be removed from the list
 // When a user clicks on the ‘Clear” btn at the bottom of the list the entire content of the list will be removed.
 
@@ -50,7 +50,8 @@ $(document).ready(function (event) {
     console.log('userInput:', userInput)
 
     // create an icon to remove an element from the list
-    let removeItemEl = '<span id="remove-item" class="remove-item">x(remove item)</span>'
+    // let removeItemEl = '<span id="remove-item" class="remove-item">x(remove item)</span>'
+    let removeItemEl = '<button id="remove">x</button>'
 
     // append the added element from the list
     $('ol').append(`<li>${userInput} ${removeItemEl}</li>`);
