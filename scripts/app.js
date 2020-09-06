@@ -19,21 +19,24 @@ $(document).ready(function (event) {
 
   // SUBMIT FUNCTION
   // listen to a click event on the submit btn and prevent the default behaviour of reloading the page
-  $('#add-btn').on('click', function (e) {
-    console.log('add btn was clicked')
-    e.preventDefault()
+  function configureSubmitBehaviour () {
+    $('#add-btn').on('click', function (e) {
+      console.log('add btn was clicked')
+      e.preventDefault()
 
-    // store userInput in a variable
-    let userInput = $('input').val().trim() // $.trim has been deprecated in jquery 3.5
-    console.log('userInput:', userInput)
-    // check if the input is valid
-    if (userInput !== '') {
-      addTask(userInput)
-    }
-  })
+      // store userInput in a variable
+      let userInput = $('input').val().trim() // $.trim has been deprecated in jquery 3.5
+      console.log('userInput:', userInput)
+      // check if the input is valid
+      if (userInput !== '') {
+        addTask(userInput)
+      }
+    })
+  }
+  configureSubmitBehaviour()
   // END OF SUBMIT FUNCTION
 
-  
+
   // ADD TASK FUNCTION
   function addTask(task) {
     // store userInput in a variable
@@ -62,15 +65,42 @@ $(document).ready(function (event) {
   // Task 2 - Manipulate the list items
   // double click doesn't work consistently, i.e. consecutive double-clicks
   // only work if you move the mouse in between them
-  let numClicks = 0
-  $(document).on('click', 'li', function (e) {
-    console.log('click this:', this)
-    if (numClicks % 2) {
-      $(this).toggleClass('completed') //.fadeOut('slow');
-    }
-    numClicks += 1;
-  });
+  function configureClickBehavior () {
+    let numClicks = 0
+    $(document).on('click', 'li', function (e) {
+      console.log('click this:', this)
+      if (numClicks % 2) {
+        //onDoubleClick()
+        $(this).toggleClass('completed') //.fadeOut('slow');
+
+        // store completed item in a variable
+        let completedItem = $(this)
+        //markAsCompletedAndMoveToBottom(completedItem)
+        let itemCompleted = completedItem.hasClass('completed') // returns a bolean
+        console.log('completed item this: ', completedItem)
+
+        if (itemCompleted) {
+          // let completedItem = $(this)
+          console.log('item is completed - move to the bottom', completedItem)
+          moveToBottom(completedItem)
+        }
+      }
+      numClicks += 1;
+    })
+  }
+  configureClickBehavior()
   // END OF MARK ITEM AS COMPLETED FUNCTION
+
+  // MOVE COMPLETED ITEMS TO THE BOTTOM OF THE LIST
+  function moveToBottom(item) {
+      item.fadeOut(function () {
+      item.appendTo($('ol'))
+      item.fadeIn()
+    })
+  }
+
+
+
 
 
 
