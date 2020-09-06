@@ -13,7 +13,7 @@
 // When a user clicks on the list item’s checkbox icon, the checkbox icon will change to clicked and / or the text color will be greyed out or scratched - DONE
 // Automatically move completed items to the bottom of the list - DONE
 // When a user clicks on the list item’s garbage icon, the item will be removed from the list
-// When a user clicks on the ‘Clear” btn at the bottom of the list the entire content of the list will be removed.
+// When a user clicks on the ‘Clear” btn at the bottom of the list the entire content of the list will be removed. - DONE
 
 $(document).ready(function (event) {
 
@@ -68,14 +68,32 @@ $(document).ready(function (event) {
     // configure click behaviour
     //double click doesn't work consistently, i.e. consecutive double-clicks
     // only work if you move the mouse in between them
-    let numClicks = 0
     $(document).on('click', 'li', function (e) {
-      console.log('click this:', this)
-      if (numClicks % 2) {
+      // TODO: rename, we don't know if it's completed
+
+      let completedItem = $(this)
+      console.log('click this:', this, e)
+
+      let numClicks = completedItem.data('numClicks')
+      let clickTime = new Date().getTime()
+      if (numClicks === undefined) {
+        console.log('initializing')
+        // first time, initialize
+        completedItem.data('numClicks', 0)
+        numClicks = 0
+        completedItem.data('lastClickTime', clickTime)
+      }
+      let lastClickTime = completedItem.data('lastClickTime')
+      // by this point, both numClicks and lastClickTime have the correct values
+      // whether this is the first time or not
+      let timeSinceLastClick = clickTime - lastClickTime
+      console.log('numClicks:', numClicks)
+      console.log('timeSinceLastClick:', timeSinceLastClick)
+      if (numClicks % 2 && timeSinceLastClick < 1000) {
         $(this).toggleClass('completed')
 
         // store completed item in a variable
-        let completedItem = $(this)
+
 
         let itemCompleted = completedItem.hasClass('completed') // returns a boolean
 
@@ -87,7 +105,18 @@ $(document).ready(function (event) {
 
         }
       }
-      numClicks += 1;
+      // TODO
+      // if eventTarget is button#remove don't increment
+      // XXX BUG
+      // if the user has clicked once, then waited, then double clicked,
+      // numCLicks % 2 will evaluate to false in the above if statement
+      // even if timeSinceLastClicked is less than the threshold
+      // the fix here likely involves creating a timeSinceLastDoubleClick
+      // or something to that effect
+      // we should probably pick another direction now :|
+      completedItem.data('numClicks', numClicks + 1)
+      completedItem.data('lastClickTime', clickTime)
+
     })
   }
 
