@@ -23,12 +23,11 @@ $(document).ready(function (event) {
   */
   function configureSubmitBehaviour () {
     $('#add-btn').on('click', function (e) {
-      console.log('add btn was clicked')
       e.preventDefault()
 
       // store userInput in a variable
       let userInput = $('input').val().trim() // $.trim has been deprecated in jquery 3.5
-      console.log('userInput:', userInput)
+
       // check if the input is valid
       if (userInput !== '') {
         addTask(userInput)
@@ -47,7 +46,6 @@ $(document).ready(function (event) {
   function addTask(task) {
     // store userInput in a variable
     let userInput = $('input').val().trim() // $.trim has been deprecated in jquery 3.5
-    console.log('userInput:', userInput)
 
     // create an icon to remove an element from the list
     // let removeItemEl = '<span id="remove-item" class="remove-item">x(remove item)</span>'
@@ -78,14 +76,15 @@ $(document).ready(function (event) {
 
         // store completed item in a variable
         let completedItem = $(this)
-        //markAsCompletedAndMoveToBottom(completedItem)
-        let itemCompleted = completedItem.hasClass('completed') // returns a bolean
-        console.log('completed item this: ', completedItem)
+
+        let itemCompleted = completedItem.hasClass('completed') // returns a boolean
+
 
         if (itemCompleted) {
           // let completedItem = $(this)
           console.log('item is completed - move to the bottom', completedItem)
           moveToBottom(completedItem)
+
         }
       }
       numClicks += 1;
@@ -102,10 +101,23 @@ $(document).ready(function (event) {
     })
   }
 
+  /* REMOVE ITEM FROM THE LIST */
+  function removeTask () {
+    $(document).on('click', '#remove', function () {
+      let taskToRemove = $(this).parent() // btn parent -> li
+      // console.log('taskToRemove this:', $(this))
+
+      console.log('taskToRemove:', taskToRemove)
+      taskToRemove.remove()
+
+    })
+  }
+
 
   // Function Calls
   configureSubmitBehaviour()
   markItemAsCompleted()
+  removeTask()
 
 
 
