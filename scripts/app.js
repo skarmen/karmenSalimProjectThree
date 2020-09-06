@@ -1,12 +1,13 @@
 // Task 1 - create the basic functionality:
-// Users can enter tasks into the input field and press enter to add the task to an unordered list
-// Upon submission, the inputted task will be added to an unordered list below the input field
-// Listen to a submit event on the form
-// Prevent the default behaviour on submit
-// Store the input value in a variable
-// Append that variable to the unordered list
-// Append a list item to the unored list(can use font - awesome icon for checkbox and garbage can - should be append inside the li)
-// Clear the input field once the form is submitted by setting the input field value to ‘’ (empty quotes) once the form has been submitted
+// Users can enter tasks into the input field and press add btn to add the task to an unordered list - DONE
+// Upon submission, the inputted task will be added to an unordered list below the input field - DONE
+// - use conditional here to check if the input is valid - DONE
+// Listen to a submit event on the btn - DONE
+// Prevent the default behaviour on submit - DONE
+// Store the input value in a variable - DONE
+// Append that variable to the unordered list - DONE
+// Append a list item to the unordered list(can use font - awesome icon for checkbox and garbage can - should be append inside the li) - DONE
+// Clear the input field once the form is submitted by setting the input field value to ‘’ (empty quotes) once the form has been submitted - DONE
 
 // Task 2 - manipulate the tasks in the unordered list:
 // When a user clicks on the list item’s checkbox icon, the checkbox icon will change to clicked and / or the text color will be greyed out or scratched
@@ -14,29 +15,64 @@
 // When a user clicks on the list item’s garbage icon, the item will be removed from the list
 // When a user clicks on the ‘Clear” btn at the bottom of the list the entire content of the list will be removed.
 
-// $(document).ready(
-//   function () {
-//     $('#button').click(
-//       function () {
-//         var toAdd = $('input[name=ListItem]').val();
-//         $('ol').append('<li>' + toAdd + '</li>');
-//       });
+$(document).ready(function (event) {
 
-//     $("input[name=ListItem]").keyup(function (event) {
-//       if (event.keyCode == 13) {
-//         $("#button").click();
-//       }
-//     });
+  // SUBMIT FUNCTION
+  // listen to a click event on the submit btn and prevent the default behaviour of reloading the page
+  $('#add-btn').on('click', function (e) {
+    console.log('add btn was clicked')
+    e.preventDefault()
 
-//     $(document).on('dblclick', 'li', function () {
-//       $(this).toggleClass('strike').fadeOut('slow');
-//     });
+    // store userInput in a variable
+    let userInput = $('input').val().trim() // $.trim has been deprecated in jquery 3.5
+    console.log('userInput:', userInput)
+    // check if the input is valid
+    if (userInput !== '') {
+      addTask(userInput)
+    }
+  })
+  // END OF SUBMIT FUNCTION
 
-//     $('input').focus(function () {
-//       $(this).val('');
-//     });
+  
+  // ADD TASK FUNCTION
+  function addTask(task) {
+    // store userInput in a variable
+    let userInput = $('input').val().trim() // $.trim has been deprecated in jquery 3.5
+    console.log('userInput:', userInput)
+    // check if the input is valid
+    if (userInput !== '') {
 
-//     $('ol').sortable();
+      // create an icon to remove an element from the list
+      let removeItemEl = '<span id="remove-item" class="remove-item">x(remove item)</span>'
 
-//   }
-// );
+      // append the added element from the list
+      $('ol').append(`<li>${userInput} ${removeItemEl}</li>`);
+
+      // clear the input field once the item is appended to the list
+      $('input').val('')
+
+    } else {
+      alert('Input cannot be empty. Please enter a valid task.')
+    }
+  }
+  // END OF ADD TASK FUNCTION
+
+
+  // MARK ITEM AS COMPLETED FUNCTION
+  // Task 2 - Manipulate the list items
+  // double click doesn't work consistently, i.e. consecutive double-clicks
+  // only work if you move the mouse in between them
+  let numClicks = 0
+  $(document).on('click', 'li', function (e) {
+    console.log('click this:', this)
+    if (numClicks % 2) {
+      $(this).toggleClass('completed') //.fadeOut('slow');
+    }
+    numClicks += 1;
+  });
+  // END OF MARK ITEM AS COMPLETED FUNCTION
+
+
+
+  // End of Doc ready function
+})

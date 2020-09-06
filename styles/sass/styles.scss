@@ -24,6 +24,9 @@ $task-board-background-color: #f4f3ee;
 // $task-board-background-color: #9b887c;
 $primary-btn-color: #a87866;
 // $primary-btn-color: #3a3d3b;
+$completed-text-color: #155724;
+$competed-background-color: #d4edda;
+$completed-border-color: #c3e6cb;
 
 
 
@@ -43,7 +46,7 @@ body {
 ol {
   margin: 0;
   padding: 0;
-  list-style-type: none;
+  list-style-type: decimal;
 }
 
 // Check if you need a tags
@@ -130,9 +133,9 @@ ol li {
   padding: 5px;
 }
 
-ol li:nth-child(even){
-  background: #dfdfdf;
-}
+// ol li:nth-child(even){
+//   background: #dfdfdf;
+// }
 
 .strike{
   text-decoration: line-through;
@@ -140,4 +143,11 @@ ol li:nth-child(even){
 
 li:hover{
   cursor: pointer;
+ }
+
+ .completed {
+  color: $completed-text-color;
+  background-color: $competed-background-color;
+  border: 1px solid $completed-border-color;
+  transition: background-color 0.5s ease
  }

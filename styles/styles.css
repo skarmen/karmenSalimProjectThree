@@ -453,7 +453,7 @@ body {
 ol {
   margin: 0;
   padding: 0;
-  list-style-type: none;
+  list-style-type: decimal;
 }
 
 .wrapper {
@@ -540,14 +540,18 @@ ol li {
   padding: 5px;
 }
 
-ol li:nth-child(even) {
-  background: #dfdfdf;
-}
-
 .strike {
   text-decoration: line-through;
 }
 
 li:hover {
   cursor: pointer;
+}
+
+.completed {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
 }
