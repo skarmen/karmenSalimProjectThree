@@ -49,10 +49,12 @@ $(document).ready(function (event) {
 
     // create an icon to remove an element from the list
     // let removeItemEl = '<span id="remove-item" class="remove-item">x(remove item)</span>'
-    let removeItemEl = '<button id="remove">x</button>'
+    let removeItem = '<button id="remove">x</button>'
 
+    //
+    let checkbox = '<input type="checkbox">'
     // append the added element from the list
-    $('ol').append(`<li>${userInput} ${removeItemEl}</li>`);
+    $('ol').append(`<li>${checkbox} ${userInput} ${removeItem}</li>`);
 
     // clear the input field once the item is appended to the list
     $('input').val('')
@@ -65,29 +67,28 @@ $(document).ready(function (event) {
     - configure the click behaviour
   */
   function markItemAsCompleted () {
-    // configure click behaviour
-    //double click doesn't work consistently, i.e. consecutive double-clicks
-    // only work if you move the mouse in between them
-    let numClicks = 0
+    let checkboxSelector = 'input[type=checkbox]'
     $(document).on('click', 'li', function (e) {
-      console.log('click this:', this)
-      if (numClicks % 2) {
+
+      if ($(checkboxSelector ).is(':checked')) {
         $(this).toggleClass('completed')
+        console.log('toggle class this:' , $(this))
+
 
         // store completed item in a variable
         let completedItem = $(this)
 
         let itemCompleted = completedItem.hasClass('completed') // returns a boolean
 
-
         if (itemCompleted) {
           // let completedItem = $(this)
           console.log('item is completed - move to the bottom', completedItem)
           moveToBottom(completedItem)
-
         }
+      } else {
+        $(this).removeClass('completed')
+
       }
-      numClicks += 1;
     })
   }
 
