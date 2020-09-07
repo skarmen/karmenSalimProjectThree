@@ -62,32 +62,31 @@ $(document).ready(function (event) {
   }
 
 
+
+
   /* MARK ITEM AS COMPLETED FUNCTION
     - mark item as completed & move to the bottom of the list (call moveToBottom)
     - configure the click behaviour
   */
-  function markItemAsCompleted () {
+  function configureMarkItemAsCompleted () {
     let checkboxSelector = 'input[type=checkbox]'
-    $(document).on('click', 'li', function (e) {
+    $(document).on('click', checkboxSelector, function (e) {
+      console.log('click')
 
-      if ($(checkboxSelector ).is(':checked')) {
-        $(this).toggleClass('completed')
-        console.log('toggle class this:' , $(this))
+      // toggle completed class
+      let toDoItem = $(this).parent()
+      $(toDoItem).toggleClass('completed')
 
-
+      if ($(checkboxSelector).is(':checked')) {
         // store completed item in a variable
-        let completedItem = $(this)
+        let completedItem = $(toDoItem)
 
         let itemCompleted = completedItem.hasClass('completed') // returns a boolean
 
         if (itemCompleted) {
-          // let completedItem = $(this)
-          console.log('item is completed - move to the bottom', completedItem)
+          // console.log('item is completed - move to the bottom', completedItem)
           moveToBottom(completedItem)
         }
-      } else {
-        $(this).removeClass('completed')
-
       }
     })
   }
@@ -103,7 +102,7 @@ $(document).ready(function (event) {
   }
 
   /* REMOVE ITEM FROM THE LIST */
-  function removeTask () {
+  function configureRemoveTask () {
     $(document).on('click', '#remove', function () {
       let taskToRemove = $(this).parent() // btn parent -> li
       // console.log('taskToRemove this:', $(this))
@@ -115,7 +114,7 @@ $(document).ready(function (event) {
   }
 
   /* CLEAR ENTIRE LIST */
-  function clearList () {
+  function configureClearList () {
     $('#clear-btn').on('click', function () {
       $('ol').empty()
     })
@@ -123,9 +122,9 @@ $(document).ready(function (event) {
 
   // Function Calls
   configureSubmitBehaviour()
-  markItemAsCompleted()
-  removeTask()
-  clearList()
+  configureMarkItemAsCompleted()
+  configureRemoveTask()
+  configureClearList()
 
 
 
