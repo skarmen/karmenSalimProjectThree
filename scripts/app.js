@@ -12,6 +12,7 @@
 // Move tasks to and from different lists
 // Edit task(change the task or add more details)
 // Move tasks order in the list(Drag & Drop)
+// Name Each Taskboard
 
 
 // Pseudo Code
@@ -28,11 +29,15 @@
 // Clear the input field once the form is submitted by setting the input field value to ‘’ (empty quotes) once the form has been submitted - DONE
 
 // Task 2 - manipulate the tasks in the ordered list:
-// When a user clicks on the list item’s checkbox icon, the checkbox icon will change to clicked and the text color (or background-color of the element) will be changed
+// When a user clicks on the list item’s checkbox icon, the checkbox icon will change to clicked and the text color (or background-color of the element) will be changed - DONE
+// - look into different styling options
 // Automatically move completed items to the bottom of the list - DONE
 // When a user clicks on the list item’s remove btn, the item will be removed from the list - DONE
 // When a user clicks on the ‘Clear” btn at the bottom of the list the entire content of the list will be removed. - DONE
+// Edit tasks in the list - save the edit on enter or focus out of the field - DONE
 
+// TODO
+// - figure out a way to click on the entire li not just the text area to edit the list item
 
 
 
@@ -92,6 +97,8 @@ $(document).ready(function (event) {
     // clear the input field once the item is appended to the list
     $('input').val('')
     configureEditableListItems()
+    $(".sortable").sortable();
+
   }
 
   // Using jQuery Editable library
@@ -113,7 +120,7 @@ $(document).ready(function (event) {
   function configureEditableListItems () {
     //$('.editable').editable(onEdit)
     // from https://stackoverflow.com/questions/45985601/how-do-i-make-an-editable-ul-li-list-using-jquery
-    $("#to-do-list li").on('click', 'span[data-id="editable-list-item"]', function () {
+    $("#to-do-list li").on('dblclick', 'span[data-id="editable-list-item"]', function () {
       let $input = $('<input type="text" data-id="editable-list-item">')
 
       $input.val($(this).html()) // replace the content of the el
