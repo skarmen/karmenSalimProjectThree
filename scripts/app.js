@@ -85,7 +85,7 @@ $(document).ready(function (event) {
     // create an icon to remove an element from the list
     // let removeItemEl = '<span id="remove-item" class="remove-item">x(remove item)</span>'
     let removeItem = '<button id="remove">x</button>'
-    
+
     let checkbox = '<input type="checkbox">'
     // append the added element from the list
     $('ol').append(`<li>${checkbox} <span data-id="editable-list-item">${userInput}</span> ${removeItem}</li>`);
@@ -94,22 +94,47 @@ $(document).ready(function (event) {
     configureEditableListItems()
   }
 
-  /* EDIT LIST ITEMS FUNCTION */
+  // Using jQuery Editable library
+  // function onEdit(result) {
+  //   console.log(
+  //     'onEdit()',
+  //     'this:', this,
+  //     'result:', result,
+  //   )
+  //   return result
+  // }
+
+
+  /* EDIT LIST ITEMS FUNCTION
+    - replace the span content with the input value entered by the user
+    - replace the span element with the input element
+    - reverse on focusout event
+  */
   function configureEditableListItems () {
+    //$('.editable').editable(onEdit)
+    // from https://stackoverflow.com/questions/45985601/how-do-i-make-an-editable-ul-li-list-using-jquery
     $("#to-do-list li").on('click', 'span[data-id="editable-list-item"]', function () {
-      var $input = $('<input type="text" data-id="editable-list-item">')
-      console.log('this editable:', $(this))
+      let $input = $('<input type="text" data-id="editable-list-item">')
 
-      $input.val($(this).html());
-      $(this).replaceWith($input);
-      $input.focus();
+      $input.val($(this).html()) // replace the content of the el
+      console.log('this editable:', $(this)) // this = span
+
+      $(this).replaceWith($input) // replace the actual el
+      $input.focus()
     });
 
-    $("#to-do-list li").on('focusout', 'input[data-id="editable-list-item"]', function () {
-      var $span = $('<span data-id="editable-list-item">');
-      $span.html($(this).val());
-      $(this).replaceWith($span);
-    });
+    $("#to-do-list li").on('keyup focusout', 'input[data-id="editable-list-item"]', function (e) {
+      if(e.keyCode === 13 || e.type ==='focusout') {
+
+        let $span = $('<span data-id="editable-list-item">')
+
+        $span.html($(this).val())
+        console.log('focusout this:', $(this)) // this = input
+
+        $(this).replaceWith($span)
+      }
+    })
+
   }
 
 
@@ -174,6 +199,8 @@ $(document).ready(function (event) {
   configureMarkItemAsCompleted()
   configureRemoveTask()
   configureClearList()
+
+
 
 
 
