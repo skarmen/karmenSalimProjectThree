@@ -30,7 +30,7 @@
 // Edit tasks in the list - save the edit on enter or focus out of the field - DONE
 
 
-
+// Task 3 - insert a new list on user input
 
 
 // Stretch Goals
@@ -61,7 +61,7 @@ $(document).ready(function (event) {
       e.preventDefault()
 
       // store userInput in a variable
-      let userInput = $('input').val().trim() // $.trim has been deprecated in jquery 3.5
+      let userInput = $('#new-task').val().trim() // $.trim has been deprecated in jquery 3.5
 
       // check if the input is valid
       if (userInput !== '') {
@@ -72,6 +72,55 @@ $(document).ready(function (event) {
     })
   }
 
+  /* Add a list title
+    // have an editable input tag in the index.html file with a placeholder "New List Tittle"
+    // the user can enter an input
+    // on enter or focusout out of the input element the text should be saved as an h tag
+  // on dblcick the h tag will turn into an input field again and the user can edit the title
+
+  */
+  function addListTitle () {
+    $('#new-list-title').on('keyup', function (e) {
+      if (e.keyCode === 13) {
+        console.log('pressed enter') // this works
+        console.log('this in addListTitle:', $(this)) // the input field
+
+        // store the list title entered by the user
+        const listTitleInput = $('#new-list-title').val().trim()
+        console.log('listTitle:', listTitleInput)
+
+        const titleEl = $('<h3 id="list-heading"></h3>')
+        console.log('titleEl', titleEl)
+
+        $('ol').append(titleEl)
+
+        titleEl.html($(this).val())
+        console.log('titleEl this', $(this))
+        // const $newListTitle = $(`<h3 id="list-heading"> ${listTitleInput} </h3>`)
+        // console.log('newListTitle:', $newListTitle)
+
+        $(this).replaceWith(titleEl) // replace the actual el = input => h3
+
+      }
+    })
+
+    $("#list-heading").on('dblclick', function () {
+      console.log('h3', $(this))
+      console.log('this is working')
+
+      // let $input = $('<input type="text" data-id="editable-list-item">')
+
+      // $input.val($(this).html()) // replace the content of the el
+      // console.log('this editable:', $(this)) // this = span
+
+      // $(this).replaceWith($input) // replace the actual el
+      // $input.focus()
+    })
+  }
+
+  addListTitle()
+
+
 
   /* ADD TASK FUNCTION
     - add the user input to the list
@@ -80,7 +129,7 @@ $(document).ready(function (event) {
   */
   function addTask(task) {
     // store userInput in a variable
-    let userInput = $('input').val().trim() // $.trim has been deprecated in jquery 3.5
+    let userInput = $('#new-task').val().trim() // $.trim has been deprecated in jquery 3.5
 
     // create aa btn to remove an element from the list
     let removeItem = '<button id="remove">x</button>'
@@ -91,11 +140,11 @@ $(document).ready(function (event) {
     // append the added element from the list
     $('ol').append(`<li>${checkbox} <span data-id="editable-list-item">${userInput}</span> ${removeItem}</li>`);
     // clear the input field once the item is appended to the list
-    $('input').val('')
+    $('#new-task').val('')
     configureEditableListItems()
 
     // drag & drop - need to look into accessability in order to use it
-    $(".sortable").sortable()
+    // $(".sortable").sortable()
 
   }
 
@@ -117,7 +166,6 @@ $(document).ready(function (event) {
     - reverse on focusout event
   */
   function configureEditableListItems () {
-
     // from https://stackoverflow.com/questions/45985601/how-do-i-make-an-editable-ul-li-list-using-jquery
     $("#to-do-list li").on('dblclick', 'span[data-id="editable-list-item"]', function () {
       let $input = $('<input type="text" data-id="editable-list-item">')
@@ -127,7 +175,7 @@ $(document).ready(function (event) {
 
       $(this).replaceWith($input) // replace the actual el
       $input.focus()
-    });
+    })
 
     $("#to-do-list li").on('keyup focusout', 'input[data-id="editable-list-item"]', function (e) {
       if(e.keyCode === 13 || e.type ==='focusout') {
@@ -140,7 +188,6 @@ $(document).ready(function (event) {
         $(this).replaceWith($span)
       }
     })
-
   }
 
 
@@ -181,6 +228,7 @@ $(document).ready(function (event) {
     })
   }
 
+
   /* REMOVE ITEM FROM THE LIST */
   function configureRemoveTask () {
     $(document).on('click', '#remove', function () {
@@ -193,12 +241,14 @@ $(document).ready(function (event) {
     })
   }
 
+
   /* CLEAR ENTIRE LIST */
   function configureClearList () {
     $('#clear-btn').on('click', function () {
       $('ol').empty()
     })
   }
+
 
   // Function Calls
   configureSubmitBehaviour()
