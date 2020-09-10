@@ -79,46 +79,60 @@ $(document).ready(function (event) {
   // on dblcick the h tag will turn into an input field again and the user can edit the title
 
   */
-  function addListTitle () {
-    $('#new-list-title').on('keyup', function (e) {
-      if (e.keyCode === 13) {
-        console.log('pressed enter') // this works
-        console.log('this in addListTitle:', $(this)) // the input field
+  // function addListTitle () {
 
-        // store the list title entered by the user
-        const listTitleInput = $('#new-list-title').val().trim()
-        console.log('listTitle:', listTitleInput)
-
-        const titleEl = $('<h3 id="list-heading"></h3>')
-        console.log('titleEl', titleEl)
-
-        $('ol').append(titleEl)
-
-        titleEl.html($(this).val())
-        console.log('titleEl this', $(this))
-        // const $newListTitle = $(`<h3 id="list-heading"> ${listTitleInput} </h3>`)
-        // console.log('newListTitle:', $newListTitle)
-
-        $(this).replaceWith(titleEl) // replace the actual el = input => h3
-
-      }
-    })
-
-    $("#list-heading").on('dblclick', function () {
-      console.log('h3', $(this))
-      console.log('this is working')
-
-      // let $input = $('<input type="text" data-id="editable-list-item">')
-
-      // $input.val($(this).html()) // replace the content of the el
-      // console.log('this editable:', $(this)) // this = span
-
-      // $(this).replaceWith($input) // replace the actual el
-      // $input.focus()
-    })
+  function onEdit(result) {
+    // console.log(
+    //   'onEdit()',
+    //   'this:', this,
+    //   'result:', result,
+    // ),
+    return result
   }
 
-  addListTitle()
+  $('.editable').editable(onEdit, {
+    tooltip: 'Click to edit..'
+  })
+
+  //   $('#new-list-title').on('keyup', function (e) {
+  //     if (e.keyCode === 13) {
+  //       console.log('pressed enter') // this works
+  //       console.log('this in addListTitle:', $(this)) // the input field
+
+  //       // store the list title entered by the user
+  //       const listTitleInput = $('#new-list-title').val().trim()
+  //       console.log('listTitle:', listTitleInput)
+
+  //       const titleEl = $('<h3 id="list-heading"></h3>')
+  //       console.log('titleEl', titleEl)
+
+  //       $('ol').append(titleEl)
+
+  //       titleEl.html($(this).val())
+  //       console.log('titleEl this', $(this))
+  //       // const $newListTitle = $(`<h3 id="list-heading"> ${listTitleInput} </h3>`)
+  //       // console.log('newListTitle:', $newListTitle)
+
+  //       $(this).replaceWith(titleEl) // replace the actual el = input => h3
+
+  //     }
+  //   })
+
+  //   $("#list-heading").on('dblclick', function () {
+  //     console.log('h3', $(this))
+  //     console.log('this is working')
+
+  //     // let $input = $('<input type="text" data-id="editable-list-item">')
+
+  //     // $input.val($(this).html()) // replace the content of the el
+  //     // console.log('this editable:', $(this)) // this = span
+
+  //     // $(this).replaceWith($input) // replace the actual el
+  //     // $input.focus()
+  //   })
+  // }
+
+  // addListTitle()
 
 
 
@@ -167,6 +181,7 @@ $(document).ready(function (event) {
   */
   function configureEditableListItems () {
     // from https://stackoverflow.com/questions/45985601/how-do-i-make-an-editable-ul-li-list-using-jquery
+    // can be done with editable as well
     $("#to-do-list li").on('dblclick', 'span[data-id="editable-list-item"]', function () {
       let $input = $('<input type="text" data-id="editable-list-item">')
 
