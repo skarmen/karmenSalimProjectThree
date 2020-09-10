@@ -1,18 +1,11 @@
 // MVP Goals
-// Enter task - DONE
+// Add task - DONE
+// Edit task - DONE
 // Delete task - DONE
 // Clear all tasks - DONE
 // Mark task as completed - DONE
 // Automatically move completed items at the bottom of the list - DONE
 
-// Stretch Goals
-// Allow for the creation of multiple lists(e.g Personal, Work, Entertainment)
-// Possibly dropdown menu to select which category you want to open a list for
-// Implement Due date on tasks(alert user / change colors of overdue tasks)
-// Move tasks to and from different lists
-// Edit task(change the task or add more details)
-// Move tasks order in the list(Drag & Drop)
-// Name Each Taskboard
 
 
 // Pseudo Code
@@ -36,17 +29,19 @@
 // When a user clicks on the ‘Clear” btn at the bottom of the list the entire content of the list will be removed. - DONE
 // Edit tasks in the list - save the edit on enter or focus out of the field - DONE
 
-// TODO
-// - figure out a way to click on the entire li not just the text area to edit the list item
 
 
 
 
-
-
-
-
-
+// Stretch Goals
+// Allow for the creation of multiple lists(e.g Personal, Work, Entertainment)
+// Possibly dropdown menu to select which category you want to open a list for
+// Implement Due date on tasks(alert user / change colors of overdue tasks)
+// Move tasks to and from different lists
+// Edit task(change the task or add more details)
+// Move tasks order in the list(Drag & Drop) - DONE
+//  - figure out how to implement this across lists
+// Name Each Taskboard
 
 
 
@@ -87,21 +82,24 @@ $(document).ready(function (event) {
     // store userInput in a variable
     let userInput = $('input').val().trim() // $.trim has been deprecated in jquery 3.5
 
-    // create an icon to remove an element from the list
-    // let removeItemEl = '<span id="remove-item" class="remove-item">x(remove item)</span>'
+    // create aa btn to remove an element from the list
     let removeItem = '<button id="remove">x</button>'
 
+    // create a checkbox to use for checking completed items
     let checkbox = '<input type="checkbox">'
+
     // append the added element from the list
     $('ol').append(`<li>${checkbox} <span data-id="editable-list-item">${userInput}</span> ${removeItem}</li>`);
     // clear the input field once the item is appended to the list
     $('input').val('')
     configureEditableListItems()
-    $(".sortable").sortable();
+
+    // drag & drop - need to look into accessability in order to use it
+    $(".sortable").sortable()
 
   }
 
-  // Using jQuery Editable library
+  // Using jQuery Editable library - alternative to configureEditableListItems
   // function onEdit(result) {
   //   console.log(
   //     'onEdit()',
@@ -110,6 +108,7 @@ $(document).ready(function (event) {
   //   )
   //   return result
   // }
+  //$('.editable').editable(onEdit)
 
 
   /* EDIT LIST ITEMS FUNCTION
@@ -118,7 +117,7 @@ $(document).ready(function (event) {
     - reverse on focusout event
   */
   function configureEditableListItems () {
-    //$('.editable').editable(onEdit)
+
     // from https://stackoverflow.com/questions/45985601/how-do-i-make-an-editable-ul-li-list-using-jquery
     $("#to-do-list li").on('dblclick', 'span[data-id="editable-list-item"]', function () {
       let $input = $('<input type="text" data-id="editable-list-item">')
