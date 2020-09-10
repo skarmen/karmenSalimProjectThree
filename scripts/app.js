@@ -72,67 +72,21 @@ $(document).ready(function (event) {
     })
   }
 
-  /* Add a list title
-    // have an editable input tag in the index.html file with a placeholder "New List Tittle"
-    // the user can enter an input
-    // on enter or focusout out of the input element the text should be saved as an h tag
-  // on dblcick the h tag will turn into an input field again and the user can edit the title
-
+  /* ADD/ EDIT A LIST TITLE FUNCTION
   */
-  // function addListTitle () {
-
-  function onEdit(result) {
-    // console.log(
-    //   'onEdit()',
-    //   'this:', this,
-    //   'result:', result,
-    // ),
+  function onTaskBoardTitleEdit(result) {
+    console.log(
+      'onEdit()',
+      'this:', this,
+      'result:', result,
+    )
     return result
   }
 
-  $('.editable').editable(onEdit, {
-    tooltip: 'Click to edit..'
+  $('.editable').editable(onTaskBoardTitleEdit, {
+    tooltip: 'Click to edit list title',
+    placeholder: 'Click to edit list title',
   })
-
-  //   $('#new-list-title').on('keyup', function (e) {
-  //     if (e.keyCode === 13) {
-  //       console.log('pressed enter') // this works
-  //       console.log('this in addListTitle:', $(this)) // the input field
-
-  //       // store the list title entered by the user
-  //       const listTitleInput = $('#new-list-title').val().trim()
-  //       console.log('listTitle:', listTitleInput)
-
-  //       const titleEl = $('<h3 id="list-heading"></h3>')
-  //       console.log('titleEl', titleEl)
-
-  //       $('ol').append(titleEl)
-
-  //       titleEl.html($(this).val())
-  //       console.log('titleEl this', $(this))
-  //       // const $newListTitle = $(`<h3 id="list-heading"> ${listTitleInput} </h3>`)
-  //       // console.log('newListTitle:', $newListTitle)
-
-  //       $(this).replaceWith(titleEl) // replace the actual el = input => h3
-
-  //     }
-  //   })
-
-  //   $("#list-heading").on('dblclick', function () {
-  //     console.log('h3', $(this))
-  //     console.log('this is working')
-
-  //     // let $input = $('<input type="text" data-id="editable-list-item">')
-
-  //     // $input.val($(this).html()) // replace the content of the el
-  //     // console.log('this editable:', $(this)) // this = span
-
-  //     // $(this).replaceWith($input) // replace the actual el
-  //     // $input.focus()
-  //   })
-  // }
-
-  // addListTitle()
 
 
 
