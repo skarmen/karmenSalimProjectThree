@@ -57,7 +57,8 @@ const toDoApp = {}
    - validate the userInput and add it to the list by calling (addTask f)
  */
 toDoApp.configureSubmitBehaviour = function () {
-  $('.add-new-task-btn').on('click', function (e) {
+  // $('.add-new-task-btn').off('click') // turn off any click event listeners
+  $('.main').on('click', '.add-new-task-btn', function (e) {
     e.preventDefault()
 
     const $addTaskBtn = $(e.target)
@@ -128,8 +129,6 @@ toDoApp.addCard = function () {
   // Add editable title on all new cards
   toDoApp.configureCardTitle()
 
-
-  toDoApp.configureSubmitBehaviour()
 
 
 
@@ -219,7 +218,7 @@ toDoApp.configureEditableListItems = function c() {
   */
 toDoApp.configureMarkItemAsCompleted = function () {
   const checkboxSelector = 'input[type=checkbox]'
-  $(document).on('click', checkboxSelector, function (e) {
+  $('.main').on('click', checkboxSelector, function (e) {
     console.log('click')
 
     // toggle completed class
@@ -252,7 +251,7 @@ toDoApp.moveToBottom = function (item) {
 
 /* REMOVE ITEM FROM THE LIST */
 toDoApp.configureRemoveTask = function () {
-  $(document).on('click', '#remove', function () {
+  $('.main').on('click', '#remove', function () {
     const $taskToRemove = $(this).parent() // btn parent -> li
     // console.log('taskToRemove this:', $(this))
 
@@ -263,18 +262,21 @@ toDoApp.configureRemoveTask = function () {
 }
 
 
-/* CLEAR ENTIRE LIST */
+/* CLEAR ENTIRE LIST
+  - clear the entire list on btn click
+  - find the selected sibling of the event target and clear the content inside
+   the sibling element
+*/
 toDoApp.configureClearList = function () {
-  $(document).on('click', '.clear-list-btn', function (e) {
+  $('.main').on('click', '.clear-list-btn', function (e) {
 
-    console.log('clear list this:', $(this), 'siblings of this: ', $(this).siblings('.to-do-list')) // this = clear btn
+    console.log('clear list this:', $(this), 'siblings of this: ',
+    $(this).siblings('.to-do-list')) // this = clear btn
 
     // find the sibling on the "Clear" btn and empty that sibling (ol)
-    $(this).siblings('.to-do-list').empty()
-
+    $(this).siblings('ol').empty()
   })
 }
-
 
 
 
@@ -282,7 +284,7 @@ toDoApp.configureClearList = function () {
 toDoApp.init = function () {
   // Function Calls
   toDoApp.configureAddCardBehaviour()
-  // toDoApp.configureSubmitBehaviour()
+  toDoApp.configureSubmitBehaviour()
   toDoApp.configureMarkItemAsCompleted()
   toDoApp.configureRemoveTask()
   toDoApp.configureClearList()
