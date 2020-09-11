@@ -60,8 +60,8 @@ toDoApp.configureSubmitBehaviour = function () {
   $('.add-new-task-btn').on('click', function (e) {
     e.preventDefault()
 
-    const $addBtn = $(e.target)
-    console.log('addBtn:', $addBtn)
+    const $addTaskBtn = $(e.target)
+    console.log('addBtn:', $addTaskBtn)
 
     const $eventTargetPreviousEl = $(e.target).prev() // e target = btn, so we are looking for the input field before the add task btn
     console.log('e target:', e.target, 'this:', $(this))
@@ -75,7 +75,7 @@ toDoApp.configureSubmitBehaviour = function () {
 
     // check if the input is valid
     if ($userInput !== '') {
-      toDoApp.addTask($userInput, $addBtn)
+      toDoApp.addTask($userInput, $addTaskBtn)
     } else {
       alert('Input cannot be empty. Please enter a valid task.')
     }
@@ -84,19 +84,16 @@ toDoApp.configureSubmitBehaviour = function () {
 
 
  /* CONFIGURE ADD CARD BEHAVIOUR
-  -on btn click calls the addCard() function to create a new card on the page
+  - on btn click calls the addCard() function to create a new card on the page
   -
 */
 toDoApp.configureAddCardBehaviour = function () {
   $('#add-new-card-btn').on('click', function (e) {
     e.preventDefault()
 
-    // append the task card container on btn click
+    // creates a new card
     toDoApp.addCard()
-    toDoApp.configureSubmitBehaviour()
-
-    // Add editable title on all new cards
-    toDoApp.configureCardTitle()
+    // toDoApp.configureSubmitBehaviour()
   })
 }
 /* ADD NEW CARD FUNCTION
@@ -116,7 +113,7 @@ toDoApp.addCard = function () {
 
 
         <!-- Task List -->
-        <ol class="to-do-list sortable">
+        <ol class="to-do-list">
 
           <!-- To do items added dynamically here -->
         </ol>
@@ -128,6 +125,14 @@ toDoApp.addCard = function () {
   $('.main').append($taskCardContainer)
   console.log('addList works')
 
+  // Add editable title on all new cards
+  toDoApp.configureCardTitle()
+
+
+  toDoApp.configureSubmitBehaviour()
+
+
+
 }
 
 
@@ -136,9 +141,9 @@ toDoApp.addCard = function () {
     - clear the input field
     - function is called upon submit
   */
-toDoApp.addTask = function ($userInput, $addBtn) {
+toDoApp.addTask = function ($userInput, $addTaskBtn) {
 
-  console.log('addBtn parent next', $($addBtn).parent())
+  console.log('addBtn parent next', $($addTaskBtn).parent())
 
   // create aa btn to remove an element from the list
   const removeItem = '<button id="remove">x</button>'
@@ -147,7 +152,7 @@ toDoApp.addTask = function ($userInput, $addBtn) {
   const checkbox = '<input type="checkbox">'
 
   // append the added element from the list
-  $($addBtn).parent().next('ol').append(`<li>${checkbox} <span data-id="editable-list-item">${$userInput}</span> ${removeItem}</li>`);
+  $($addTaskBtn).parent().next('ol').append(`<li>${checkbox} <span data-id="editable-list-item">${$userInput}</span> ${removeItem}</li>`);
   // clear the input field once the item is appended to the list
   $('.new-task').val('')
   toDoApp.configureEditableListItems()
@@ -161,7 +166,7 @@ toDoApp.addTask = function ($userInput, $addBtn) {
   */
 toDoApp.onCardTitleEdit = function (result) {
   console.log(
-    'onEdit()',
+    'onCardTitleEdit()',
     'this:', this,
     'result:', result,
   )
@@ -169,7 +174,7 @@ toDoApp.onCardTitleEdit = function (result) {
 }
 
 toDoApp.configureCardTitle = function () {
-  $('.editable').editable(toDoApp.onCardTitleEdit(), {
+  $('.editable').editable(toDoApp.onCardTitleEdit, {
     tooltip: 'Click to edit list title',
     placeholder: 'Click to edit list title',
   })
@@ -262,6 +267,8 @@ toDoApp.configureRemoveTask = function () {
 toDoApp.configureClearList = function () {
   $('.clear-list-btn').on('click', function () {
     $('ol').empty()
+    console.log('configureClearList not working')
+
   })
 }
 
@@ -272,7 +279,7 @@ toDoApp.configureClearList = function () {
 toDoApp.init = function () {
   // Function Calls
   toDoApp.configureAddCardBehaviour()
-  toDoApp.configureSubmitBehaviour()
+  // toDoApp.configureSubmitBehaviour()
   toDoApp.configureMarkItemAsCompleted()
   toDoApp.configureRemoveTask()
   toDoApp.configureClearList()
