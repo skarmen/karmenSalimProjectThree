@@ -19,17 +19,34 @@ img { max-width: 100%;}
 /* COLORS
 ========================== */
 
-$primary-background-color: #baafaa;
-$task-board-background-color: #f4f3ee;
-// $task-board-background-color: #9b887c;
-$primary-btn-color: #a87866;
-// $primary-btn-color: #3a3d3b;
-$completed-text-color: #155724;
-$competed-background-color: #d4edda;
-$completed-border-color: #c3e6cb;
+// Functional Colors
+$background-color: #FAFAFA;
+$secondary-background-color: #F2F2F7;
+$primary-text-color: #241C15;
+$secondary-text-color: #FFFFFF;
+
+// Primary Brand Colors
+$primary-color: #007C89;
+$secondary-color: #FF8D3F;
 
 
+// Feedback Colors
+$success-color: #d4edda;
+$success-border-color: #c3e6cb;
+$alert-color: #FBEECA;
 
+// Effects
+$hover-btn-color: #CCE5E7;
+
+
+// $completed-text-color: #155724;
+
+
+/* FONTS
+========================== */
+// Body - font-family: 'Roboto', sans-serif;
+// Heading (h1 - App title) - font-family: 'Roboto Slab', serif;
+// Heading (other than h1) - 'Raleway', sans-serif;
 
 /* GLOBALLY DEFINED STYLES
 ========================== */
@@ -40,7 +57,7 @@ html {
 body {
   font-family: 'Roboto', 'Times', 'Arial' sans-serif;
   font-size: 2rem;
-  background-color: $primary-background-color;
+  background-color: $background-color;
 }
 
 ol {
@@ -49,6 +66,15 @@ ol {
   list-style-type: decimal;
 }
 
+h1 {
+  font-family: 'Roboto Slab', 'Times', 'Arial', serif;
+  color: $primary-color;
+}
+
+h2, h3 {
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  color: $secondary-color;
+}
 // Check if you need a tags
 // a {
 //   text-decoration: none;
@@ -80,7 +106,8 @@ ol {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: $task-board-background-color;
+  background-color: $secondary-background-color;
+  box-shadow: 2px 2px 2px 0px rgba(36,28,21,0.2);
   padding: 20px;
   width: 400px;
   margin: 0 auto;
@@ -109,8 +136,8 @@ input[type="text"]{
 /* Buttons */
 .btn {
   display: inline-block;
-  // background-color:;
-  background-color: $primary-btn-color;
+  color: $secondary-text-color;
+  background-color: $primary-color;
   border: none;
   border-radius: 5px;
   text-align: center;
@@ -146,8 +173,7 @@ li:hover{
  }
 
  .completed {
-  color: $completed-text-color;
-  background-color: $competed-background-color;
-  border: 1px solid $completed-border-color;
+  background-color: $success-color;
+  border: 1px solid $success-border-color;
   transition: background-color 0.5s ease
  }

@@ -438,6 +438,8 @@ img {
 ========================== */
 /* COLORS
 ========================== */
+/* FONTS
+========================== */
 /* GLOBALLY DEFINED STYLES
 ========================== */
 html {
@@ -447,13 +449,23 @@ html {
 body {
   font-family: 'Roboto', 'Times', 'Arial' sans-serif;
   font-size: 2rem;
-  background-color: #baafaa;
+  background-color: #FAFAFA;
 }
 
 ol {
   margin: 0;
   padding: 0;
   list-style-type: decimal;
+}
+
+h1 {
+  font-family: 'Roboto Slab', 'Times', 'Arial', serif;
+  color: #007C89;
+}
+
+h2, h3 {
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  color: #FF8D3F;
 }
 
 .wrapper {
@@ -475,7 +487,9 @@ ol {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #f4f3ee;
+  background-color: #F2F2F7;
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(36, 28, 21, 0.2);
+          box-shadow: 2px 2px 2px 0px rgba(36, 28, 21, 0.2);
   padding: 20px;
   width: 400px;
   margin: 0 auto;
@@ -500,7 +514,8 @@ input[type="text"] {
 /* Buttons */
 .btn {
   display: inline-block;
-  background-color: #a87866;
+  color: #FFFFFF;
+  background-color: #007C89;
   border: none;
   border-radius: 5px;
   text-align: center;
@@ -531,7 +546,6 @@ li:hover {
 }
 
 .completed {
-  color: #155724;
   background-color: #d4edda;
   border: 1px solid #c3e6cb;
   -webkit-transition: background-color 0.5s ease;
