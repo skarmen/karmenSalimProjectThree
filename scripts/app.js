@@ -59,8 +59,10 @@ $(document).ready(function (event) {
   function configureSubmitBehaviour () {
     $('.add-new-task-btn').on('click', function (e) {
       e.preventDefault()
-      // e.stopPropagation();
-      // e.stopImmediatePropagation();
+
+      const $addBtn = $(e.target)
+      console.log('addBtn:', $addBtn)
+
       const $eventTargetPreviousEl = $(e.target).prev() // e target = btn, so we are looking for the input field before the add task btn
       console.log('e target:', e.target, 'this:', $(this))
 
@@ -68,13 +70,13 @@ $(document).ready(function (event) {
 
 
       // store userInput in a variable
-      let userInput = $($eventTargetPreviousEl).val().trim() // $.trim has been deprecated in jquery 3.5
-      console.log('userInput:', userInput)
+      const $userInput = $($eventTargetPreviousEl).val().trim() // $.trim has been deprecated in jquery 3.5
+      console.log('userInput:', $userInput)
 
 
       // check if the input is valid
-      if (userInput !== '') {
-        addTask(userInput)
+      if ($userInput !== '') {
+        addTask($userInput, $addBtn)
       } else {
         alert('Input cannot be empty. Please enter a valid task.')
       }
@@ -92,7 +94,6 @@ $(document).ready(function (event) {
 
       // Add editable title on all new cards
       configureCardTitle()
-
     })
   }
 
@@ -117,7 +118,7 @@ $(document).ready(function (event) {
 
 
   function addCard() {
-    let $taskCardContainer = $(`
+    const $taskCardContainer = $(`
      <div class="task-card-container">
         <h2 class="editable"></h2>
         <!-- Input New Task  -->
@@ -148,16 +149,18 @@ $(document).ready(function (event) {
     - clear the input field
     - function is called upon submit
   */
-  function addTask(userInput) {
+  function addTask($userInput, $addBtn) {
+
+    console.log('addBtn parent next', $($addBtn).parent())
 
     // create aa btn to remove an element from the list
-    let removeItem = '<button id="remove">x</button>'
+    const removeItem = '<button id="remove">x</button>'
 
     // create a checkbox to use for checking completed items
-    let checkbox = '<input type="checkbox">'
+    const checkbox = '<input type="checkbox">'
 
     // append the added element from the list
-    $('ol').append(`<li>${checkbox} <span data-id="editable-list-item">${userInput}</span> ${removeItem}</li>`);
+    $($addBtn).parent().next('ol').append(`<li>${checkbox} <span data-id="editable-list-item">${$userInput}</span> ${removeItem}</li>`);
     // clear the input field once the item is appended to the list
     $('.new-task').val('')
     configureEditableListItems()
@@ -188,7 +191,7 @@ $(document).ready(function (event) {
     // from https://stackoverflow.com/questions/45985601/how-do-i-make-an-editable-ul-li-list-using-jquery
     // can be done with editable as well
     $("#to-do-list li").on('dblclick', 'span[data-id="editable-list-item"]', function () {
-      let $input = $('<input type="text" data-id="editable-list-item">')
+      const $input = $('<input type="text" data-id="editable-list-item">')
 
       $input.val($(this).html()) // replace the content of the el
       console.log('this editable:', $(this)) // this = span
@@ -200,7 +203,7 @@ $(document).ready(function (event) {
     $("#to-do-list li").on('keyup focusout', 'input[data-id="editable-list-item"]', function (e) {
       if(e.keyCode === 13 || e.type ==='focusout') {
 
-        let $span = $('<span data-id="editable-list-item">')
+        const $span = $('<span data-id="editable-list-item">')
 
         $span.html($(this).val())
         console.log('focusout this:', $(this)) // this = input
@@ -216,23 +219,23 @@ $(document).ready(function (event) {
     - configure the click behaviour
   */
   function configureMarkItemAsCompleted () {
-    let checkboxSelector = 'input[type=checkbox]'
+    const checkboxSelector = 'input[type=checkbox]'
     $(document).on('click', checkboxSelector, function (e) {
       console.log('click')
 
       // toggle completed class
-      let toDoItem = $(this).parent()
-      $(toDoItem).toggleClass('completed')
+      const $toDoItem = $(this).parent()
+      $($toDoItem).toggleClass('completed')
 
       if ($(checkboxSelector).is(':checked')) {
         // store completed item in a variable
-        let completedItem = $(toDoItem)
+        const $completedItem = $($toDoItem)
 
-        let itemCompleted = completedItem.hasClass('completed') // returns a boolean
+        const itemCompleted = $completedItem.hasClass('completed') // returns a boolean
 
         if (itemCompleted) {
           // console.log('item is completed - move to the bottom', completedItem)
-          moveToBottom(completedItem)
+          moveToBottom($completedItem)
         }
       }
     })
@@ -252,11 +255,11 @@ $(document).ready(function (event) {
   /* REMOVE ITEM FROM THE LIST */
   function configureRemoveTask () {
     $(document).on('click', '#remove', function () {
-      let taskToRemove = $(this).parent() // btn parent -> li
+      const $taskToRemove = $(this).parent() // btn parent -> li
       // console.log('taskToRemove this:', $(this))
 
-      console.log('taskToRemove:', taskToRemove)
-      taskToRemove.remove()
+      console.log('taskToRemove:', $taskToRemove)
+      $taskToRemove.remove()
 
     })
   }
