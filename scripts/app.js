@@ -83,7 +83,10 @@ toDoApp.configureSubmitBehaviour = function () {
 }
 
 
-/* ADD NEW CARD FUNCTION */
+ /* CONFIGURE ADD CARD BEHAVIOUR
+  -on btn click calls the addCard() function to create a new card on the page
+  -
+*/
 toDoApp.configureAddCardBehaviour = function () {
   $('#add-new-card-btn').on('click', function (e) {
     e.preventDefault()
@@ -96,7 +99,10 @@ toDoApp.configureAddCardBehaviour = function () {
     toDoApp.configureCardTitle()
   })
 }
-
+/* ADD NEW CARD FUNCTION
+  - dynamically creates a div with the html elements to be inserted on the page
+  - appends that div to the page
+*/
 toDoApp.addCard = function () {
   const $taskCardContainer = $(`
      <div class="task-card-container">
@@ -163,7 +169,7 @@ toDoApp.onCardTitleEdit = function (result) {
 }
 
 toDoApp.configureCardTitle = function () {
-  $('.editable').editable(onCardTitleEdit, {
+  $('.editable').editable(toDoApp.onCardTitleEdit(), {
     tooltip: 'Click to edit list title',
     placeholder: 'Click to edit list title',
   })
