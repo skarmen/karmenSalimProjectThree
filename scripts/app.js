@@ -89,13 +89,17 @@ $(document).ready(function (event) {
       // append the task card container on btn click
       addCard()
       configureSubmitBehaviour()
+
+      // Add editable title on all new cards
+      configureCardTitle()
+
     })
   }
 
 
   /* ADD/ EDIT A LIST TITLE FUNCTION
   */
-  function onTaskBoardTitleEdit(result) {
+  function onCardTitleEdit(result) {
     console.log(
       'onEdit()',
       'this:', this,
@@ -104,16 +108,19 @@ $(document).ready(function (event) {
     return result
   }
 
-  $('.editable').editable(onTaskBoardTitleEdit, {
-    tooltip: 'Click to edit list title',
-    placeholder: 'Click to edit list title',
-  })
+  function configureCardTitle () {
+    $('.editable').editable(onCardTitleEdit, {
+      tooltip: 'Click to edit list title',
+      placeholder: 'Click to edit list title',
+    })
+  }
+
 
   function addCard() {
     let $taskCardContainer = $(`
      <div class="task-card-container">
-        <!-- Input New Task  -->
         <h2 class="editable"></h2>
+        <!-- Input New Task  -->
         <form>
           <label for="new-task" class="sr-only">New Task</label>
           <input class="new-task" type="text" placeholder="New Task" name="new-task"/>
