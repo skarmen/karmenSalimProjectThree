@@ -46,10 +46,6 @@
 
 
 
-
-
-
-
 const toDoApp = {}
 
 /* SUBMIT FUNCTION
@@ -221,8 +217,14 @@ toDoApp.configureMarkItemAsCompleted = function () {
   $('.main').on('click', checkboxSelector, function (e) {
     console.log('click')
 
-    // toggle completed class
-    const $toDoItem = $(this).parent()
+    const $toDoItem = $(this).parent() // list item, this = checkbox
+    console.log('$toDoItem:', $toDoItem, 'this:', $(this))
+
+
+    const $listToAppend = $(this).closest('ol')
+    console.log('$listToAppend:', $listToAppend)
+
+     // toggle completed class
     $($toDoItem).toggleClass('completed')
 
     if ($(checkboxSelector).is(':checked')) {
@@ -233,7 +235,7 @@ toDoApp.configureMarkItemAsCompleted = function () {
 
       if (itemCompleted) {
         // console.log('item is completed - move to the bottom', completedItem)
-        toDoApp.moveToBottom($completedItem)
+        toDoApp.moveToBottom($completedItem, $listToAppend)
       }
     }
   })
@@ -241,9 +243,9 @@ toDoApp.configureMarkItemAsCompleted = function () {
 
 
 // MOVE COMPLETED ITEMS TO THE BOTTOM OF THE LIST
-toDoApp.moveToBottom = function (item) {
+toDoApp.moveToBottom = function (item, list) {
   item.fadeOut(function () {
-    item.appendTo($('ol'))
+    item.appendTo(list)
     item.fadeIn()
   })
 }
