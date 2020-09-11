@@ -15,19 +15,24 @@
     <div class="main">
       <h2>Goals List</h2>
       <p><em>App description and instructions go here</em></p>
+      <button type="submit" id="add-new-card-btn" class="btn">Add New Task Card</button>
 
-      <form>
-        <label for="new-task" class="sr-only">New Task</label>
-        <input id="new-task" type="text" placeholder="New Task" name="new-task"/>
-        <button type="submit" id="add-btn" class="btn">Add</button>
-      </form>
+      <div class="task-card-container">
+        <!-- Input New Task  -->
+        <h2 class="editable"></h2>
+        <form>
+          <label for="new-task" class="sr-only">New Task</label>
+          <input class="new-task" type="text" placeholder="New Task" name="new-task"/>
+          <button type="submit" class="btn add-new-task-btn">Add</button>
+        </form>
 
-      <div class="task-board-container">
+
+        <!-- Task List -->
         <ol id="to-do-list" class="to-do-list sortable">
-          <h2 class="editable"></h2>
+
           <!-- To do items added dynamically here -->
         </ol>
-      <button id="clear-btn" class="btn">Clear</button>
+        <button id="clear-btn" class="btn clear-list-btn">Clear</button>
       </div>
       <!-- Task Board Container ENDS -->
     </div>

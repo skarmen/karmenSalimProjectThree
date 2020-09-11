@@ -57,11 +57,20 @@ $(document).ready(function (event) {
     - validate the userInput and add it to the list by calling (addTask f)
   */
   function configureSubmitBehaviour () {
-    $('#add-btn').on('click', function (e) {
+    $('.add-new-task-btn').on('click', function (e) {
       e.preventDefault()
+      // e.stopPropagation();
+      // e.stopImmediatePropagation();
+      const $eventTargetPreviousEl = $(e.target).prev() // e target = btn, so we are looking for the input field before the add task btn
+      console.log('e target:', e.target, 'this:', $(this))
+
+      console.log('evenTargetPreviousEl:', $eventTargetPreviousEl)
+
 
       // store userInput in a variable
-      let userInput = $('#new-task').val().trim() // $.trim has been deprecated in jquery 3.5
+      let userInput = $($eventTargetPreviousEl).val().trim() // $.trim has been deprecated in jquery 3.5
+      console.log('userInput:', userInput)
+
 
       // check if the input is valid
       if (userInput !== '') {
@@ -71,6 +80,18 @@ $(document).ready(function (event) {
       }
     })
   }
+
+  /* ADD NEW CARD FUNCTION */
+  function configureAddCardBehaviour () {
+    $('#add-new-card-btn').on('click', function (e) {
+      e.preventDefault()
+
+      // append the task card container on btn click
+      addCard()
+      configureSubmitBehaviour()
+    })
+  }
+
 
   /* ADD/ EDIT A LIST TITLE FUNCTION
   */
@@ -88,6 +109,31 @@ $(document).ready(function (event) {
     placeholder: 'Click to edit list title',
   })
 
+  function addCard() {
+    let $taskCardContainer = $(`
+     <div class="task-card-container">
+        <!-- Input New Task  -->
+        <h2 class="editable"></h2>
+        <form>
+          <label for="new-task" class="sr-only">New Task</label>
+          <input class="new-task" type="text" placeholder="New Task" name="new-task"/>
+          <button type="submit" class="btn add-new-task-btn">Add</button>
+        </form>
+
+
+        <!-- Task List -->
+        <ol id="to-do-list" class="to-do-list sortable">
+
+          <!-- To do items added dynamically here -->
+        </ol>
+        <button id="clear-btn" class="btn clear-list-btn">Clear</button>
+      </div>
+      <!-- Task Board Container ENDS -->
+    `)
+
+    $('.main').append($taskCardContainer)
+    console.log('addList works')
+  }
 
 
   /* ADD TASK FUNCTION
@@ -95,9 +141,7 @@ $(document).ready(function (event) {
     - clear the input field
     - function is called upon submit
   */
-  function addTask(task) {
-    // store userInput in a variable
-    let userInput = $('#new-task').val().trim() // $.trim has been deprecated in jquery 3.5
+  function addTask(userInput) {
 
     // create aa btn to remove an element from the list
     let removeItem = '<button id="remove">x</button>'
@@ -108,7 +152,7 @@ $(document).ready(function (event) {
     // append the added element from the list
     $('ol').append(`<li>${checkbox} <span data-id="editable-list-item">${userInput}</span> ${removeItem}</li>`);
     // clear the input field once the item is appended to the list
-    $('#new-task').val('')
+    $('.new-task').val('')
     configureEditableListItems()
 
     // drag & drop - need to look into accessability in order to use it
@@ -213,14 +257,15 @@ $(document).ready(function (event) {
 
   /* CLEAR ENTIRE LIST */
   function configureClearList () {
-    $('#clear-btn').on('click', function () {
+    $('.clear-list-btn').on('click', function () {
       $('ol').empty()
     })
   }
 
 
   // Function Calls
-  configureSubmitBehaviour()
+  configureAddCardBehaviour ()
+  // configureSubmitBehaviour()
   configureMarkItemAsCompleted()
   configureRemoveTask()
   configureClearList()
