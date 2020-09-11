@@ -265,9 +265,12 @@ toDoApp.configureRemoveTask = function () {
 
 /* CLEAR ENTIRE LIST */
 toDoApp.configureClearList = function () {
-  $('.clear-list-btn').on('click', function () {
-    $('ol').empty()
-    console.log('configureClearList not working')
+  $(document).on('click', '.clear-list-btn', function (e) {
+
+    console.log('clear list this:', $(this), 'siblings of this: ', $(this).siblings('.to-do-list')) // this = clear btn
+
+    // find the sibling on the "Clear" btn and empty that sibling (ol)
+    $(this).siblings('.to-do-list').empty()
 
   })
 }
