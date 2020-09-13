@@ -436,9 +436,15 @@ img {
 
 /* IMPORTS
 ========================== */
-@media (min-width: 768px) and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .task-card {
     width: 300px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .task-card {
+    width: 350px !important;
   }
   .task-card:nth-last-child(2n) {
     margin-right: 0;
