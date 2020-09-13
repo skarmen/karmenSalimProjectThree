@@ -30,11 +30,13 @@ img { max-width: 100%;}
 ========================== */
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
   font-family: 'Roboto', 'Times', 'Arial' sans-serif;
-  font-size: 2rem;
+  font-size: 2.4rem;
+  line-height: 2.2;
   background-color: $background-color;
 }
 
@@ -45,8 +47,11 @@ ol {
 }
 
 h1 {
-  font-family: 'Roboto', 'Times', 'Arial', sans-serif;
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
   color: $secondary-color;
+  font-size: 4.9rem;
+  line-height: 2.8;
+  letter-spacing: 2px;
 }
 
 h2, h3 {
@@ -69,14 +74,30 @@ h2, h3 {
 
 /* ========================== */
 
+/* header */
+header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header span {
+  color: $secondary-color;
+  font-weight: 600;
+}
+
+header p {
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  max-width: 800px;
+}
+
+
 /* Main Div holding up all the content */
-.main{
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // // margin: 40px auto;
+.main-content{
+ min-height: calc(100vh - 70px);
+ margin: 100px 0;
 
 }
+
 
 /* Task Board */
 .task-board-container {
@@ -110,8 +131,9 @@ h2, h3 {
 /* Form */
 form {
   display: flex;
-  flex-wrap: wrap;
-  padding: 15px;
+  // flex-wrap: wrap;
+  justify-content: center;
+
 
 }
 
@@ -124,7 +146,6 @@ input[type="text"]{
 }
 
 
-
 /* Buttons */
 .btn {
   color: $secondary-text-color;
@@ -133,7 +154,7 @@ input[type="text"]{
   border-radius: 5px;
   margin-left: 5px;
   text-align: center;
-  padding: 10px 10px;
+  padding: 10px;
 }
 .add-new-task-btn {
   flex: 1;
@@ -145,8 +166,8 @@ input[type="text"]{
   opacity: 0.7;
 }
 
-/* Task List */
 
+/* Task List */
 ol {
   padding: 20px;
 }
@@ -155,13 +176,6 @@ ol li {
   padding: 5px;
 }
 
-// ol li:nth-child(even){
-//   background: #dfdfdf;
-// }
-
-.strike{
-  text-decoration: line-through;
-}
 
 li:hover{
   cursor: pointer;
@@ -171,4 +185,22 @@ li:hover{
   background-color: $success-color;
   border: 1px solid $success-border-color;
   transition: background-color 0.5s ease
+ }
+
+
+ /* Footer */
+
+ footer {
+   height: 40px;
+   width: 100%;
+   padding: 15px;
+   text-align: center;
+   vertical-align: middle;
+   background-color: $secondary-background-color;
+   color: $secondary-color;
+
+   a {
+     text-decoration: none;
+     color: $secondary-color;
+   }
  }

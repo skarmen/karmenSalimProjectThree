@@ -54,7 +54,7 @@ const toDoApp = {}
  */
 toDoApp.configureSubmitBehaviour = function () {
   // $('.add-new-task-btn').off('click') // turn off any click event listeners
-  $('.main').on('click', '.add-new-task-btn', function (e) {
+  $('.main-content').on('click', '.add-new-task-btn', function (e) {
     e.preventDefault()
 
     const $addTaskBtn = $(e.target)
@@ -214,7 +214,7 @@ toDoApp.configureEditableListItems = function c() {
   */
 toDoApp.configureMarkItemAsCompleted = function () {
   const checkboxSelector = 'input[type=checkbox]'
-  $('.main').on('click', checkboxSelector, function (e) {
+  $('.main-content').on('click', checkboxSelector, function (e) {
     console.log('click')
 
     const $toDoItem = $(this).parent() // list item, this = checkbox
@@ -253,7 +253,7 @@ toDoApp.moveToBottom = function (item, list) {
 
 /* REMOVE ITEM FROM THE LIST */
 toDoApp.configureRemoveTask = function () {
-  $('.main').on('click', '#remove', function () {
+  $('.main-content').on('click', '#remove', function () {
     const $taskToRemove = $(this).parent() // btn parent -> li
     // console.log('taskToRemove this:', $(this))
 
@@ -270,7 +270,7 @@ toDoApp.configureRemoveTask = function () {
    the sibling element
 */
 toDoApp.configureClearList = function () {
-  $('.main').on('click', '.clear-list-btn', function (e) {
+  $('.main-content').on('click', '.clear-list-btn', function (e) {
 
     console.log('clear list this:', $(this), 'siblings of this: ',
     $(this).siblings('.to-do-list')) // this = clear btn

@@ -482,11 +482,13 @@ img {
 ========================== */
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
   font-family: 'Roboto', 'Times', 'Arial' sans-serif;
-  font-size: 2rem;
+  font-size: 2.4rem;
+  line-height: 2.2;
   background-color: #FAFAFA;
 }
 
@@ -497,8 +499,11 @@ ol {
 }
 
 h1 {
-  font-family: 'Roboto', 'Times', 'Arial', sans-serif;
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
   color: #008080;
+  font-size: 4.9rem;
+  line-height: 2.8;
+  letter-spacing: 2px;
 }
 
 h2, h3 {
@@ -513,7 +518,31 @@ h2, h3 {
 }
 
 /* ========================== */
+/* header */
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+header span {
+  color: #008080;
+  font-weight: 600;
+}
+
+header p {
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  max-width: 800px;
+}
+
 /* Main Div holding up all the content */
+.main-content {
+  min-height: calc(100vh - 70px);
+  margin: 100px 0;
+}
+
 /* Task Board */
 .task-board-container {
   display: -webkit-box;
@@ -559,9 +588,9 @@ form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: 15px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 input[type="text"] {
@@ -582,7 +611,7 @@ input[type="text"] {
   border-radius: 5px;
   margin-left: 5px;
   text-align: center;
-  padding: 10px 10px;
+  padding: 10px;
 }
 
 .add-new-task-btn {
@@ -606,10 +635,6 @@ ol li {
   padding: 5px;
 }
 
-.strike {
-  text-decoration: line-through;
-}
-
 li:hover {
   cursor: pointer;
 }
@@ -619,4 +644,20 @@ li:hover {
   border: 1px solid #c3e6cb;
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
+}
+
+/* Footer */
+footer {
+  height: 40px;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #F2F2F7;
+  color: #008080;
+}
+
+footer a {
+  text-decoration: none;
+  color: #008080;
 }
