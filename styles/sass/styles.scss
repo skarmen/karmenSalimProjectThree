@@ -15,6 +15,7 @@ img { max-width: 100%;}
 
 /* IMPORTS
 ========================== */
+@import 'mediaQueries.scss';
 
 /* COLORS
 ========================== */
@@ -91,28 +92,41 @@ h2, h3 {
 
 /* ========================== */
 
+/* Main Div holding up all the content */
 .main{
-  // // width: 400px;
   // display: flex;
   // justify-content: center;
   // align-items: center;
-  // flex-direction: column;
-  // margin: 40px auto;
+  // // margin: 40px auto;
 
 }
 
 /* Task Board */
-.task-card-container {
+.task-board-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+/* Task Cards */
+.task-card {
   display: flex;
   justify-content: center;
   flex-direction: column;
   background-color: $secondary-background-color;
   box-shadow: 2px 2px 2px 0px rgba(36,28,21,0.2);
+  width: 350px;
+  height: 100%;
+  margin: 40px 10px 0px 0px;
   padding: 20px;
-  width: 400px;
-  margin: 0 auto;
-  margin-top: 40px;
   border-radius: 5px;
+  box-sizing: border-box;
+}
+
+// target every third card
+.task-card:nth-child(3n) {
+  margin-right: 0
 }
 
 
@@ -124,7 +138,6 @@ form {
 }
 
 input[type="text"]{
-  width: 250px;
   outline: 0;
   border: none;
   padding: 10px;

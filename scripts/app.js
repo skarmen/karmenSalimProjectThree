@@ -99,7 +99,7 @@ toDoApp.configureAddCardBehaviour = function () {
 */
 toDoApp.addCard = function () {
   const $taskCardContainer = $(`
-     <div class="task-card-container">
+     <div class="task-card">
         <h2 class="editable"></h2>
         <!-- Input New Task  -->
         <form>
@@ -116,10 +116,10 @@ toDoApp.addCard = function () {
         </ol>
         <button class="btn clear-list-btn">Clear</button>
       </div>
-      <!-- Task Board Container ENDS -->
+      <!-- Task Card ENDS -->
     `)
 
-  $('.main').append($taskCardContainer)
+  $('.task-board-container').append($taskCardContainer)
   console.log('addList works')
 
   // Add editable title on all new cards

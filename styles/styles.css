@@ -436,6 +436,21 @@ img {
 
 /* IMPORTS
 ========================== */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .task-card {
+    width: 300px !important;
+  }
+  .task-card:nth-last-child(2n) {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .task-card {
+    margin-right: 0 !important;
+  }
+}
+
 /* COLORS
 ========================== */
 /* FONTS
@@ -475,8 +490,21 @@ h2, h3 {
 }
 
 /* ========================== */
+/* Main Div holding up all the content */
 /* Task Board */
-.task-card-container {
+.task-board-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+/* Task Cards */
+.task-card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -490,11 +518,17 @@ h2, h3 {
   background-color: #F2F2F7;
   -webkit-box-shadow: 2px 2px 2px 0px rgba(36, 28, 21, 0.2);
           box-shadow: 2px 2px 2px 0px rgba(36, 28, 21, 0.2);
+  width: 350px;
+  height: 100%;
+  margin: 40px 10px 0px 0px;
   padding: 20px;
-  width: 400px;
-  margin: 0 auto;
-  margin-top: 40px;
   border-radius: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.task-card:nth-child(3n) {
+  margin-right: 0;
 }
 
 /* Form */
@@ -504,7 +538,6 @@ form {
 }
 
 input[type="text"] {
-  width: 250px;
   outline: 0;
   border: none;
   padding: 10px;
