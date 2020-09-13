@@ -1,10 +1,24 @@
 @media (max-width: 1200px) {
+  /* Task Cards */
   .task-card {
     width: 300px!important;
   }
+
+  /* ================= */
+
+
+  /* Buttons */
+  .add-new-task-btn {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  /* ================= */
 }
 
+
 @media (max-width: 1024px) {
+  /* Task Cards */
   .task-card {
     width: 350px!important;
   }
@@ -12,10 +26,22 @@
   .task-card:nth-last-child(2n) {
     margin-right: 0;
   }
+
+  /* ================= */
+
+
+  /* Buttons */
+  .add-new-task-btn {
+    margin-top: 0;
+  }
+  /* ================= */
 }
 
+
 @media (max-width: 768px) {
+  /* Task Cards */
   .task-card {
     margin-right: 0!important;
   }
+  /* ================= */
 }

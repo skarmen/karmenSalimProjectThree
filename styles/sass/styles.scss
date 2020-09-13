@@ -132,7 +132,8 @@ h2, h3 {
 
 /* Form */
 form {
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
   padding: 15px;
 
 }
@@ -140,21 +141,25 @@ form {
 input[type="text"]{
   outline: 0;
   border: none;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
+  flex: 1;
 }
 
 
 
 /* Buttons */
 .btn {
-  display: inline-block;
   color: $secondary-text-color;
   background-color: $primary-color;
   border: none;
   border-radius: 5px;
+  margin-left: 5px;
   text-align: center;
-  padding: 10px 20px;
+  padding: 10px 10px;
+}
+.add-new-task-btn {
+  flex: 1;
 }
 
 .btn:hover,
