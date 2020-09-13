@@ -15,32 +15,9 @@ img { max-width: 100%;}
 
 /* IMPORTS
 ========================== */
-@import 'mediaQueries.scss';
+@import 'mediaQueries';
+@import 'colors';
 
-/* COLORS
-========================== */
-
-// Functional Colors
-$background-color: #FAFAFA;
-$secondary-background-color: #F2F2F7;
-$primary-text-color: #241C15;
-$secondary-text-color: #FFFFFF;
-
-// Primary Brand Colors
-$primary-color: #007C89;
-$secondary-color: #FF8D3F;
-
-
-// Feedback Colors
-$success-color: #d4edda;
-$success-border-color: #c3e6cb;
-$alert-color: #FBEECA;
-
-// Effects
-$hover-btn-color: #CCE5E7;
-
-
-// $completed-text-color: #155724;
 
 
 /* FONTS
@@ -68,13 +45,13 @@ ol {
 }
 
 h1 {
-  font-family: 'Roboto Slab', 'Times', 'Arial', serif;
-  color: $primary-color;
+  font-family: 'Roboto', 'Times', 'Arial', sans-serif;
+  color: $secondary-color;
 }
 
 h2, h3 {
   font-family: 'Raleway', 'Times', 'Arial', sans-serif;
-  color: $secondary-color;
+  color: $primary-text-color
 }
 // Check if you need a tags
 // a {

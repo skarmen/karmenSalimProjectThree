@@ -497,13 +497,13 @@ ol {
 }
 
 h1 {
-  font-family: 'Roboto Slab', 'Times', 'Arial', serif;
-  color: #007C89;
+  font-family: 'Roboto', 'Times', 'Arial', sans-serif;
+  color: #008080;
 }
 
 h2, h3 {
   font-family: 'Raleway', 'Times', 'Arial', sans-serif;
-  color: #FF8D3F;
+  color: #241C15;
 }
 
 .wrapper {
@@ -577,7 +577,7 @@ input[type="text"] {
 /* Buttons */
 .btn {
   color: #FFFFFF;
-  background-color: #007C89;
+  background-color: #0E6EB8;
   border: none;
   border-radius: 5px;
   margin-left: 5px;
