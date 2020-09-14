@@ -14,42 +14,55 @@
 
   <header>
     <div class="wrapper">
-      <h1>taskick</h1>
-      <h2>Need to organize your to do lists? <span>taskick</span>-it</h2>
-      <p><span>taskick</span> is a simple productivity app which will help you
-        manage tasks and keep track of accomplishments! <span>taskick</span>
-        helps you organize your tasks in separate cards so you know exactly what
-        to do.</p>
-    </div>
+      <div class="header-content">
+        <h1>taskick</h1>
+        <h2>Need to organize your to do lists? <span>taskick</span>-it</h2>
+        <p><span>taskick</span> is a simple productivity app which will help you
+          manage tasks and keep track of accomplishments! <span>taskick</span>
+          helps you organize your tasks in separate cards so you know exactly what
+          to do.</p>
+        <!-- Header Content Div ENDS -->
+      </div>
     <!-- Header Wrapper ENDS -->
+    </div>
   </header>
 
 
   <main>
-    <div class="wrapper">
-      <section class="instructions">
-        <h2>How to <span>taskick</span>?</h2>
-        <p>Organize your tasks in a few clicks:</p>
-        <ol class="instructions-list">
-          <li>Create a new task card by clicking on the "Add" button below.</li>
-          <li>Enter a title for your card (e.g "Work", "Exercise"..).</li>
-          <li>Start adding tasks to your card. Type your to do item and click the "Add" button.</li>
-          <li>Keep track of your tasks by checking off items, removing items and clearing the entire card.</li>
-          <li>Let's <span>taskick</span>-it!</li>
-        </ol>
-        <button type="submit" id="add-new-card-btn" class="btn">
-          Add New Task Card
-        </button>
-      </section>
-      <!-- Instructions Div ENDS -->
-      <div class="main-content">
-        <div class="task-board-container">
-          <!-- Add task cards dynamically here -->
+    <section class="instructions-section">
+      <div class="wrapper">
+        <div class="instructions-content">
+          <h2>How to <span>taskick</span>?</h2>
+          <p>Organize your tasks in a few clicks:</p>
+          <ol class="instructions-list">
+            <li>Create a new task card by clicking on the "Add" button below.</li>
+            <li>Enter a title for your card (e.g "Work", "Exercise"..).</li>
+            <li>Start adding tasks to your card. Type your to do item and click the "Add" button.</li>
+            <li>Keep track of your tasks by checking off items, removing items and clearing the entire card.</li>
+            <li>Let's <span>taskick</span>-it!</li>
+          </ol>
+          <button type="submit" id="add-new-card-btn" class="btn">
+            Add New Task Card
+          </button>
+        <!-- Instructions Content Div ENDS -->
         </div>
+      <!-- Instructions Wrapper ENDS -->
       </div>
-      <!-- Main Container ENDS -->
-    </div>
-    <!-- Main Wrapper ENDS -->
+    </section>
+
+    <section class="task-cards-section">
+      <div class="wrapper">
+        <div class="main-content">
+          <h2>Task Board</h2>
+          <p>Keep all your tasks in one place</p>
+          <div class="task-board-container">
+            <!-- Add task cards dynamically here -->
+          </div>
+        <!-- Main Container ENDS -->
+        </div>
+      <!-- Main Wrapper ENDS -->
+      </div>
+    </section>
   </main>
 
 

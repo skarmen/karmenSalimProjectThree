@@ -62,12 +62,11 @@ h3 {
 
 /* ========================== */
 
-
 /* header */
 header {
-  display: flex;
-  flex-wrap: wrap;
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 100px;
+  margin:100px 0px;
 }
 
 header span {
@@ -84,28 +83,37 @@ header p {
 /* Main Div holding up all the content */
 .main-content{
  min-height: calc(100vh - 100px); // for sticky footer
- margin: 100px 0;
+}
+
+.main-content h2,
+.main-content p {
+  text-align: center;
+}
+
+.main-content p {
+  @include secondary-font(2.4rem, 2.2);
+  font-style: italic;
+  padding-top: 0;
 }
 
 /* Instructions Section */
-.instructions {
-  @include secondary-font(2.4rem, 2.2);
-  // max-width: 1200px;
-  width: 100%;
-  padding: 40px;
-  margin: 100px 0;
-  background-size: cover;
-  background-color: #FFF;
-
+.instructions-section {
+  background-color: $secondary-background-color;
+  padding: 100px 0px;
 }
 
- .instructions span {
+.instructions-content {
+  @include secondary-font(2.4rem, 2.2);
+  background-size: cover;
+}
+
+.instructions-content span {
   color: $secondary-color;
   font-weight: 600;
- }
+}
 
 .instructions-list {
-  margin-top: -40px;
+  margin: -40px 0px 20px 10px;
 }
 
 /* Task Board */
@@ -113,6 +121,7 @@ header p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding-top: 40px;
 }
 
 
@@ -268,3 +277,13 @@ footer {
     color: $secondary-text-color;
    }
  }
+
+/* Multiple elements with the same styles */
+.header-content,
+.instructions-content {
+  padding: 0px 20px;
+}
+
+section {
+  margin: 100px 0px;
+}

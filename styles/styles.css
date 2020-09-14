@@ -546,12 +546,9 @@ h3 {
 /* ========================== */
 /* header */
 header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 100px;
+  margin: 100px 0px;
 }
 
 header span {
@@ -571,30 +568,45 @@ header p {
 /* Main Div holding up all the content */
 .main-content {
   min-height: calc(100vh - 100px);
-  margin: 100px 0;
 }
 
-/* Instructions Section */
-.instructions {
+.main-content h2,
+.main-content p {
+  text-align: center;
+}
+
+.main-content p {
   font-family: 'Raleway', 'Times', 'Arial', sans-serif;
   font-size: 2.4rem;
   letter-spacing: normal;
   line-height: 2.2;
   font-weight: 400;
-  width: 100%;
-  padding: 40px;
-  margin: 100px 0;
-  background-size: cover;
-  background-color: #FFF;
+  font-style: italic;
+  padding-top: 0;
 }
 
-.instructions span {
+/* Instructions Section */
+.instructions-section {
+  background-color: #F2F2F7;
+  padding: 100px 0px;
+}
+
+.instructions-content {
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: normal;
+  line-height: 2.2;
+  font-weight: 400;
+  background-size: cover;
+}
+
+.instructions-content span {
   color: #008080;
   font-weight: 600;
 }
 
 .instructions-list {
-  margin-top: -40px;
+  margin: -40px 0px 20px 10px;
 }
 
 /* Task Board */
@@ -607,6 +619,7 @@ header p {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  padding-top: 40px;
 }
 
 /* Task Cards */
@@ -769,4 +782,14 @@ footer {
 footer a {
   text-decoration: none;
   color: #FFFFFF;
+}
+
+/* Multiple elements with the same styles */
+.header-content,
+.instructions-content {
+  padding: 0px 20px;
+}
+
+section {
+  margin: 100px 0px;
 }
