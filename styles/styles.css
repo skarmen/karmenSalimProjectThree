@@ -481,14 +481,22 @@ img {
   body h3 {
     font-size: 2.2rem;
   }
-  body header p,
-  body .main-content p,
-  body .instructions-content {
+  header p,
+  .main-content p,
+  .instructions-content {
     font-size: 2rem;
   }
+  /* ================= */
+  /* Task Cards*/
   .task-card {
     width: 300px !important;
   }
+  /* ================= */
+  /* Buttons */
+  #remove-all-cards-btn {
+    margin-top: 20px;
+  }
+  /* ================= */
 }
 
 @media (max-width: 320px) {
@@ -496,6 +504,7 @@ img {
   .editable-list-items {
     font-size: 2rem;
   }
+  /* ================= */
 }
 
 /* COLORS
@@ -595,8 +604,7 @@ header p {
   min-height: calc(100vh - 100px);
 }
 
-.main-content h2,
-.main-content p {
+.main-content h2, .main-content p {
   text-align: center;
 }
 
@@ -719,6 +727,7 @@ input:active {
 .btn {
   color: #FFFFFF;
   background-color: #0E6EB8;
+  font-size: 2.2rem;
   border: none;
   border-radius: 5px;
   margin-left: 5px;

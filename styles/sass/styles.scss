@@ -69,39 +69,41 @@ section {
 }
 /* ========================== */
 
+
 /* header */
 header {
   height: 100%;
   padding-bottom: 100px;
   margin:100px 0px;
-}
 
-header span {
-  color: $secondary-color;
-  font-weight: 600;
-}
+  span {
+    color: $secondary-color;
+    font-weight: 600;
+  }
 
-header p {
-  @include secondary-font(2.4rem, 2.2);
-  max-width: 800px;
+  p {
+    @include secondary-font(2.4rem, 2.2);
+    max-width: 800px;
+  }
 }
 
 
 /* Main Div holding up all the content */
 .main-content{
- min-height: calc(100vh - 100px); // for sticky footer
+  min-height: calc(100vh - 100px); // for sticky footer
+
+  h2, p {
+    text-align: center;
+  }
+
+  p {
+    @include secondary-font(2.4rem, 2.2);
+    font-style: italic;
+    padding-top: 0;
+  }
 }
 
-.main-content h2,
-.main-content p {
-  text-align: center;
-}
 
-.main-content p {
-  @include secondary-font(2.4rem, 2.2);
-  font-style: italic;
-  padding-top: 0;
-}
 
 /* Instructions Section */
 .instructions-section {
@@ -119,11 +121,11 @@ header p {
   font-weight: 600;
 }
 
-
 .instructions-list {
   margin: -40px 0px 20px 10px;
   max-width: 950px;
 }
+
 
 /* Task Board */
 .task-board-container {
@@ -194,6 +196,7 @@ input:active {
 .btn {
   color: $secondary-text-color;
   background-color: $primary-color;
+  font-size: 2.2rem;
   border: none;
   border-radius: 5px;
   margin-left: 5px;
@@ -220,10 +223,10 @@ button:focus {
 /* Task List */
 ol {
   padding: 20px;
-}
 
-ol li {
-  padding: 5px;
+  li {
+    padding: 5px;
+  }
 }
 
 li:hover{
@@ -271,7 +274,6 @@ input[type='checkbox']:focus {
   word-break: break-all; // to wrap the text
 }
 
-
 input.editable-list-item{
   max-width: 80%;
   height: 50px;
@@ -286,9 +288,8 @@ footer {
   background-color: $secondary-color;
   color: $secondary-text-color;
 
-
   a {
     text-decoration: none;
     color: $secondary-text-color;
-   }
- }
+  }
+}
