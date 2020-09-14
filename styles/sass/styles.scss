@@ -232,6 +232,7 @@ li:hover{
   transition: background-color 0.5s ease
  }
 
+ // from https://stackoverflow.com/questions/306924/can-i-change-the-checkbox-size-using-css
 input[type='checkbox'] {
   appearance: none;
   vertical-align: middle;
@@ -264,8 +265,9 @@ input[type='checkbox']:focus {
 
  /* Footer */
 footer {
-  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
-  letter-spacing: 1.2px;
+  @include secondary-font(2.4rem, 2.2, 1.2px);
+  // font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  // letter-spacing: 1.2px;
   padding: 15px;
   text-align: center;
   background-color: $secondary-color;
