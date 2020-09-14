@@ -265,7 +265,7 @@ input[type='checkbox']:focus {
 
  /* Footer */
 footer {
-  @include secondary-font(2.4rem, 2.2, 1.2px);
+  @include secondary-font(2rem, 2.2, 1.2px);
   padding: 15px;
   text-align: center;
   background-color: $secondary-color;
