@@ -827,8 +827,15 @@ section {
   letter-spacing: normal;
   line-height: 2.2;
   font-weight: 400;
+  word-break: break-all;
 }
 
 em {
   font-style: italic;
+}
+
+input.editable-list-item {
+  display: inline;
+  max-width: 80%;
+  background-color: red;
 }

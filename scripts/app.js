@@ -198,7 +198,7 @@ toDoApp.configureEditableListItems = function c() {
   $(".to-do-list li").on('keyup focusout', 'input[data-id="editable-list-item"]', function (e) {
     if (e.keyCode === 13 || e.type === 'focusout') {
 
-      const $span = $('<span data-id="editable-list-item">')
+      const $span = $('<span data-id="editable-list-item class="editable-list-item">')
 
       $span.html($(this).val())
       console.log('focusout this:', $(this)) // this = input

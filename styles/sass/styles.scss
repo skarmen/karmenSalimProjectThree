@@ -288,8 +288,15 @@ section {
 
 .editable-list-item {
   @include primary-font (2.4rem, 2.2);
+  word-break: break-all; // to wrap the text
 }
 
 em {
   font-style: italic;
+}
+
+input.editable-list-item{
+  display: inline;
+  max-width: 80%;
+  background-color: red;
 }
