@@ -142,11 +142,6 @@ header p {
   box-sizing: border-box;
 }
 
-// target every third card
-.task-card:nth-child(3n) {
-  margin-right: 0
-}
-
 .editable {
   margin-bottom: 20px;
 }

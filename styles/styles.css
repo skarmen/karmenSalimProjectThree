@@ -439,9 +439,6 @@ img {
 ========================== */
 @media (max-width: 1200px) {
   /* Task Cards */
-  .task-card {
-    width: 300px !important;
-  }
   input[type="text"] {
     min-width: 0px;
     height: 50px;
@@ -458,14 +455,6 @@ img {
 }
 
 @media (max-width: 1024px) {
-  /* Task Cards */
-  .task-card {
-    width: 350px !important;
-  }
-  .task-card:nth-last-child(2n) {
-    margin-right: 0;
-  }
-  /* ================= */
   /* Buttons */
   .add-new-task-btn {
     margin-top: 0;
@@ -673,10 +662,6 @@ header p {
   border-radius: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-.task-card:nth-child(3n) {
-  margin-right: 0;
 }
 
 .editable {

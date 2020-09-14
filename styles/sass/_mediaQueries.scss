@@ -1,9 +1,5 @@
 @media (max-width: 1200px) {
   /* Task Cards */
-  .task-card {
-    width: 300px!important;
-  }
-
   input[type="text"] {
     min-width: 0px; // reference https://dfmcphee.com/flex-items-and-min-width-0/
     height: 50px;
@@ -25,18 +21,6 @@
 
 
 @media (max-width: 1024px) {
-  /* Task Cards */
-  .task-card {
-    width: 350px!important;
-  }
-
-  .task-card:nth-last-child(2n) {
-    margin-right: 0;
-  }
-
-  /* ================= */
-
-
   /* Buttons */
   .add-new-task-btn {
     margin-top: 0;
@@ -52,6 +36,7 @@
   }
   /* ================= */
 }
+
 
 @media (max-width: 480px) {
   /* Font size */
