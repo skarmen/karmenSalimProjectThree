@@ -147,7 +147,7 @@ toDoApp.addTask = function ($userInput, $addTaskBtn) {
   const checkbox = '<input type="checkbox" tabindex="0">'
 
   // append the added element from the list
-  $($addTaskBtn).parent().next('ol').append(`<li>${checkbox} <span data-id="editable-list-item">${$userInput}</span> ${removeItem}</li>`);
+  $($addTaskBtn).parent().next('ol').append(`<li>${checkbox} <span data-id="editable-list-item" class="editable-list-item">${$userInput}</span> ${removeItem}</li>`);
   // clear the input field once the item is appended to the list
   $('.new-task').val('')
   toDoApp.configureEditableListItems()
@@ -186,7 +186,7 @@ toDoApp.configureEditableListItems = function c() {
   // from https://stackoverflow.com/questions/45985601/how-do-i-make-an-editable-ul-li-list-using-jquery
   // can be done with editable as well
   $(".to-do-list li").on('dblclick', 'span[data-id="editable-list-item"]', function () {
-    const $input = $('<input type="text" data-id="editable-list-item">')
+    const $input = $('<input type="text" data-id="editable-list-item" class="editable-list-item">')
 
     $input.val($(this).html()) // replace the content of the el
     console.log('this editable:', $(this)) // this = span

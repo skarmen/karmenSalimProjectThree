@@ -481,6 +481,34 @@ img {
   /* ================= */
 }
 
+@media (max-width: 480px) {
+  /* Font size */
+  body {
+    font-size: 2rem;
+  }
+  body h2 {
+    font-size: 2.6rem;
+  }
+  body h3 {
+    font-size: 2.2rem;
+  }
+  body header p,
+  body .main-content p,
+  body .instructions-content {
+    font-size: 2rem;
+  }
+  body footer {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 320px) {
+  /* Font size */
+  .editable-list-items {
+    font-size: 2rem;
+  }
+}
+
 /* COLORS
 ========================== */
 /* FONTS
@@ -788,11 +816,14 @@ footer a {
 }
 
 /* Multiple elements with the same styles */
-.header-content,
-.instructions-content {
-  padding: 0px 20px;
-}
-
 section {
   margin: 100px 0px;
+}
+
+.editable-list-item {
+  font-family: 'Roboto', 'Times', 'Arial', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: normal;
+  line-height: 2.2;
+  font-weight: 400;
 }
