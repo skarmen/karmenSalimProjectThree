@@ -141,7 +141,7 @@ toDoApp.addTask = function ($userInput, $addTaskBtn) {
   console.log('addBtn parent next', $($addTaskBtn).parent())
 
   // create aa btn to remove an element from the list
-  const removeItem = '<button id="remove">x</button>'
+  const removeItem = '<button id="remove" class="remove-btn">x</button>'
 
   // create a checkbox to use for checking completed items
   const checkbox = '<input type="checkbox">'
@@ -170,8 +170,9 @@ toDoApp.onCardTitleEdit = function (result) {
 
 toDoApp.configureCardTitle = function () {
   $('.editable').editable(toDoApp.onCardTitleEdit, {
-    tooltip: 'Click to edit list title',
-    placeholder: 'Click to edit list title',
+    tooltip: 'Click to enter a card title..',
+    placeholder: 'Click to enter a card title',
+    inputcssclass: 'card-title-input'
   })
 }
 
