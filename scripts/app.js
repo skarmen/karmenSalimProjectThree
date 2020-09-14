@@ -186,7 +186,7 @@ toDoApp.configureEditableListItems = function c() {
   // from https://stackoverflow.com/questions/45985601/how-do-i-make-an-editable-ul-li-list-using-jquery
   // can be done with editable as well
   $(".to-do-list li").on('dblclick', 'span[data-id="editable-list-item"]', function () {
-    const $input = $('<input type="text" data-id="editable-list-item" class="editable-list-item">')
+    const $input = $('<input type="text" class="editable-list-item" data-id="editable-list-item">')
 
     $input.val($(this).html()) // replace the content of the el
     console.log('this editable:', $(this)) // this = span
@@ -198,7 +198,7 @@ toDoApp.configureEditableListItems = function c() {
   $(".to-do-list li").on('keyup focusout', 'input[data-id="editable-list-item"]', function (e) {
     if (e.keyCode === 13 || e.type === 'focusout') {
 
-      const $span = $('<span data-id="editable-list-item class="editable-list-item">')
+      const $span = $('<span data-id="editable-list-item" class="editable-list-item">')
 
       $span.html($(this).val())
       console.log('focusout this:', $(this)) // this = input
@@ -282,11 +282,21 @@ toDoApp.configureClearList = function () {
 }
 
 
+/* REMOVE ALL TASK CARDS
+  - clear all the task cards on the page
+*/
+toDoApp.configureRemoveCards = function () {
+  $('#remove-all-cards-btn').on('click', function () {
+    $('.task-card').remove()
+  })
+}
+
 
 // Code to kick off the app
 toDoApp.init = function () {
   // Function Calls
   toDoApp.configureAddCardBehaviour()
+  toDoApp.configureRemoveCards()
   toDoApp.configureSubmitBehaviour()
   toDoApp.configureMarkItemAsCompleted()
   toDoApp.configureRemoveTask()

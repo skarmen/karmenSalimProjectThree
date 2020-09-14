@@ -560,6 +560,14 @@ h3 {
   margin: 0 auto;
 }
 
+em {
+  font-style: italic;
+}
+
+section {
+  margin: 100px 0px;
+}
+
 /* ========================== */
 /* header */
 header {
@@ -783,6 +791,20 @@ input[type='checkbox']:focus {
   outline: 0.5px dotted #241C15 !important;
 }
 
+.editable-list-item {
+  font-family: 'Roboto', 'Times', 'Arial', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: normal;
+  line-height: 2.2;
+  font-weight: 400;
+  word-break: break-all;
+}
+
+input.editable-list-item {
+  max-width: 80%;
+  height: 50px;
+}
+
 /* Footer */
 footer {
   font-family: 'Raleway', 'Times', 'Arial', sans-serif;
@@ -799,28 +821,4 @@ footer {
 footer a {
   text-decoration: none;
   color: #FFFFFF;
-}
-
-/* Multiple elements with the same styles */
-section {
-  margin: 100px 0px;
-}
-
-.editable-list-item {
-  font-family: 'Roboto', 'Times', 'Arial', sans-serif;
-  font-size: 2.4rem;
-  letter-spacing: normal;
-  line-height: 2.2;
-  font-weight: 400;
-  word-break: break-all;
-}
-
-em {
-  font-style: italic;
-}
-
-input.editable-list-item {
-  display: inline;
-  max-width: 80%;
-  background-color: red;
 }

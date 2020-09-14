@@ -60,6 +60,13 @@ h3 {
   margin: 0 auto;
 }
 
+em {
+  font-style: italic;
+}
+
+section {
+  margin: 100px 0px;
+}
 /* ========================== */
 
 /* header */
@@ -259,6 +266,17 @@ input[type='checkbox']:focus {
   outline: 0.5px dotted $primary-text-color!important;
 }
 
+.editable-list-item {
+  @include primary-font (2.4rem, 2.2);
+  word-break: break-all; // to wrap the text
+}
+
+
+input.editable-list-item{
+  max-width: 80%;
+  height: 50px;
+}
+
 
  /* Footer */
 footer {
@@ -274,24 +292,3 @@ footer {
     color: $secondary-text-color;
    }
  }
-
-/* Multiple elements with the same styles */
-
-section {
-  margin: 100px 0px;
-}
-
-.editable-list-item {
-  @include primary-font (2.4rem, 2.2);
-  word-break: break-all; // to wrap the text
-}
-
-em {
-  font-style: italic;
-}
-
-input.editable-list-item{
-  display: inline;
-  max-width: 80%;
-  background-color: red;
-}
