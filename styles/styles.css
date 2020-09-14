@@ -513,7 +513,7 @@ ol {
 
 h1 {
   font-family: 'Raleway', 'Times', 'Arial', sans-serif;
-  font-size: 4.9rem;
+  font-size: 5rem;
   letter-spacing: 1rem;
   line-height: 2.8;
   font-weight: 700;
@@ -551,6 +551,7 @@ header {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  height: 100vh;
 }
 
 header span {
@@ -560,6 +561,10 @@ header span {
 
 header p {
   font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: normal;
+  line-height: 2.2;
+  font-weight: 400;
   max-width: 800px;
 }
 
@@ -567,6 +572,29 @@ header p {
 .main-content {
   min-height: calc(100vh - 100px);
   margin: 100px 0;
+}
+
+/* Instructions Section */
+.instructions {
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: normal;
+  line-height: 2.2;
+  font-weight: 400;
+  width: 100%;
+  padding: 40px;
+  margin: 100px 0;
+  background-size: cover;
+  background-color: #FFF;
+}
+
+.instructions span {
+  color: #008080;
+  font-weight: 600;
+}
+
+.instructions-list {
+  margin-top: -40px;
 }
 
 /* Task Board */
@@ -721,7 +749,7 @@ input[type='checkbox']:checked:after {
   color: #155724;
   font-size: 90%;
   left: 0.3rem;
-  top: -0.02rem;
+  top: -0.0001rem;
 }
 
 input[type='checkbox']:focus {

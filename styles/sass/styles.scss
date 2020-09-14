@@ -41,7 +41,7 @@ ol {
 }
 
 h1 {
-  @include secondary-font(4.9rem, 2.8, 700, 1rem,);
+  @include secondary-font(5rem, 2.8, 700, 1rem,);
   color: $secondary-color;
 }
 
@@ -67,6 +67,7 @@ h3 {
 header {
   display: flex;
   flex-wrap: wrap;
+  height: 100vh;
 }
 
 header span {
@@ -75,7 +76,7 @@ header span {
 }
 
 header p {
-  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  @include secondary-font(2.4rem, 2.2);
   max-width: 800px;
 }
 
@@ -86,6 +87,26 @@ header p {
  margin: 100px 0;
 }
 
+/* Instructions Section */
+.instructions {
+  @include secondary-font(2.4rem, 2.2);
+  // max-width: 1200px;
+  width: 100%;
+  padding: 40px;
+  margin: 100px 0;
+  background-size: cover;
+  background-color: #FFF;
+
+}
+
+ .instructions span {
+  color: $secondary-color;
+  font-weight: 600;
+ }
+
+.instructions-list {
+  margin-top: -40px;
+}
 
 /* Task Board */
 .task-board-container {
@@ -224,7 +245,7 @@ input[type='checkbox']:checked:after {
   color: $success-color;
   font-size: 90%;
   left: 0.3rem;
-  top: -0.02rem;
+  top: -0.0001rem;
 }
 
 input[type='checkbox']:focus {
