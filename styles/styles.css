@@ -486,7 +486,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto', 'Times', 'Arial' sans-serif;
+  font-family: 'Roboto', 'Times', 'Arial', sans-serif;
   font-size: 2.4rem;
   line-height: 2.2;
   background-color: #FAFAFA;
@@ -539,7 +539,7 @@ header p {
 
 /* Main Div holding up all the content */
 .main-content {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 100px);
   margin: 100px 0;
 }
 
@@ -648,16 +648,16 @@ li:hover {
 
 /* Footer */
 footer {
-  height: 40px;
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  letter-spacing: 1.2px;
   width: 100%;
   padding: 15px;
   text-align: center;
-  vertical-align: middle;
-  background-color: #F2F2F7;
-  color: #008080;
+  background-color: #008080;
+  color: #FFFFFF;
 }
 
 footer a {
   text-decoration: none;
-  color: #008080;
+  color: #FFFFFF;
 }
