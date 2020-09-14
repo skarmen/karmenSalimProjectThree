@@ -441,11 +441,17 @@ img {
   .task-card {
     width: 300px !important;
   }
+  input[type="text"] {
+    min-width: 0px;
+    height: 50px;
+    position: relative;
+    top: 10px;
+  }
   /* ================= */
   /* Buttons */
   .add-new-task-btn {
-    margin-top: 10px;
-    margin-left: 0;
+    position: relative;
+    top: 10px;
   }
   /* ================= */
 }
@@ -478,6 +484,10 @@ img {
 ========================== */
 /* FONTS
 ========================== */
+/* MIXINS
+========================== */
+/* ======================= */
+/* ========================== */
 /* GLOBALLY DEFINED STYLES
 ========================== */
 html {
@@ -488,7 +498,9 @@ html {
 body {
   font-family: 'Roboto', 'Times', 'Arial', sans-serif;
   font-size: 2.4rem;
+  letter-spacing: normal;
   line-height: 2.2;
+  font-weight: 400;
   background-color: #FAFAFA;
 }
 
@@ -500,15 +512,28 @@ ol {
 
 h1 {
   font-family: 'Raleway', 'Times', 'Arial', sans-serif;
-  color: #008080;
   font-size: 4.9rem;
+  letter-spacing: 1rem;
   line-height: 2.8;
-  letter-spacing: 2px;
+  font-weight: 700;
+  color: #008080;
 }
 
-h2, h3 {
+h2 {
   font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  font-size: 3rem;
+  letter-spacing: normal;
+  line-height: 2.2;
+  font-weight: 500;
   color: #241C15;
+}
+
+h3 {
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: normal;
+  line-height: 2.2;
+  font-weight: 500;
 }
 
 .wrapper {
@@ -583,6 +608,14 @@ header p {
   margin-right: 0;
 }
 
+.editable {
+  margin-bottom: 20px;
+}
+
+.card-title-input {
+  border: 1px solid red;
+}
+
 /* Form */
 form {
   display: -webkit-box;
@@ -598,9 +631,6 @@ input[type="text"] {
   border: none;
   padding: 5px;
   border-radius: 5px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
 }
 
 /* Buttons */
@@ -612,12 +642,6 @@ input[type="text"] {
   margin-left: 5px;
   text-align: center;
   padding: 10px;
-}
-
-.add-new-task-btn {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
 }
 
 .btn:hover,

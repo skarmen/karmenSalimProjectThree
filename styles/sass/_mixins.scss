@@ -1,0 +1,36 @@
+/* FONTS
+========================== */
+// Body - font-family: 'Roboto', sans-serif;
+// Heading (h1 - App title) - font-family: 'Roboto Slab', serif;
+// Heading (other than h1) - 'Raleway', sans-serif;
+
+
+/* MIXINS
+========================== */
+@mixin primary-font(
+  $font-size,
+  $line-height,
+  $font-weight: 400,
+  $letter-spacing: normal
+) {
+  font-family: 'Roboto', 'Times', 'Arial', sans-serif;
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+@mixin secondary-font(
+  $font-size,
+  $line-height,
+  $font-weight: 400,
+  $letter-spacing: normal
+) {
+  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+/* ======================= */

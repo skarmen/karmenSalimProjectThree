@@ -100,7 +100,7 @@ toDoApp.configureAddCardBehaviour = function () {
 toDoApp.addCard = function () {
   const $taskCardContainer = $(`
      <div class="task-card">
-        <h2 class="editable"></h2>
+        <h3 class="editable"></h3>
         <!-- Input New Task  -->
         <form>
           <label for="new-task" class="sr-only">New Task</label>

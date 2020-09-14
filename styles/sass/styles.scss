@@ -17,14 +17,10 @@ img { max-width: 100%;}
 ========================== */
 @import 'mediaQueries';
 @import 'colors';
+@import 'mixins';
 
+/* ========================== */
 
-
-/* FONTS
-========================== */
-// Body - font-family: 'Roboto', sans-serif;
-// Heading (h1 - App title) - font-family: 'Roboto Slab', serif;
-// Heading (other than h1) - 'Raleway', sans-serif;
 
 /* GLOBALLY DEFINED STYLES
 ========================== */
@@ -34,9 +30,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto', 'Times', 'Arial', sans-serif;
-  font-size: 2.4rem;
-  line-height: 2.2;
+  @include primary-font (2.4rem, 2.2);
   background-color: $background-color;
 }
 
@@ -47,24 +41,18 @@ ol {
 }
 
 h1 {
-  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+  @include secondary-font(4.9rem, 2.8, 700, 1rem,);
   color: $secondary-color;
-  font-size: 4.9rem;
-  line-height: 2.8;
-  letter-spacing: 2px;
 }
 
-h2, h3 {
-  font-family: 'Raleway', 'Times', 'Arial', sans-serif;
+h2 {
+  @include secondary-font(3rem, 2.2, 500);
   color: $primary-text-color
 }
-// Check if you need a tags
-// a {
-//   text-decoration: none;
-//   color: $primary-text-color;
-//   /* for accessability */
-//   padding: 10px;
-// }
+
+h3 {
+  @include secondary-font(2.4rem, 2.2, 500);
+}
 
 .wrapper {
   width: 90%;
@@ -73,6 +61,7 @@ h2, h3 {
 }
 
 /* ========================== */
+
 
 /* header */
 header {
@@ -126,14 +115,19 @@ header p {
   margin-right: 0
 }
 
+.editable {
+  margin-bottom: 20px;
+}
+
+.card-title-input {
+  border: 1px solid red;
+}
+
 
 /* Form */
 form {
   display: flex;
-  // flex-wrap: wrap;
   justify-content: center;
-
-
 }
 
 input[type="text"]{
@@ -141,7 +135,6 @@ input[type="text"]{
   border: none;
   padding: 5px;
   border-radius: 5px;
-  flex: 1;
 }
 
 
@@ -155,9 +148,7 @@ input[type="text"]{
   text-align: center;
   padding: 10px;
 }
-.add-new-task-btn {
-  flex: 1;
-}
+
 
 .btn:hover,
 .btn:focus {
@@ -175,7 +166,6 @@ ol li {
   padding: 5px;
 }
 
-
 li:hover{
   cursor: pointer;
  }
@@ -188,7 +178,6 @@ li:hover{
 
 
  /* Footer */
-
 footer {
   font-family: 'Raleway', 'Times', 'Arial', sans-serif;
   letter-spacing: 1.2px;
