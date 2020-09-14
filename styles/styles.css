@@ -1,3 +1,4 @@
+@charset "UTF-8";
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
   margin: 0;
   padding: 0;
@@ -648,7 +649,7 @@ input:focus {
 }
 
 input:active {
-  background-color: #CCE5E7;
+  background-color: #FAFAFA;
 }
 
 /* Buttons */
@@ -662,8 +663,8 @@ input:active {
   padding: 10px;
 }
 
-.btn:hover,
-.btn:focus {
+button:hover,
+button:focus {
   cursor: pointer;
   opacity: 0.7;
 }
@@ -694,6 +695,37 @@ li:hover {
   border: 1px solid #c3e6cb;
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
+}
+
+input[type='checkbox'] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  vertical-align: middle;
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  background: #FAFAFA;
+  border-radius: 0.25em;
+  border: 1px solid #241C15;
+  position: relative;
+}
+
+input[type='checkbox']:checked {
+  background: #d4edda;
+}
+
+input[type='checkbox']:checked:after {
+  content: "✔";
+  position: absolute;
+  color: #155724;
+  font-size: 90%;
+  left: 0.3rem;
+  top: -0.02rem;
+}
+
+input[type='checkbox']:focus {
+  outline: 0.5px dotted #241C15 !important;
 }
 
 /* Footer */

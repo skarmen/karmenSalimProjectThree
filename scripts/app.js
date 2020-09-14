@@ -144,7 +144,7 @@ toDoApp.addTask = function ($userInput, $addTaskBtn) {
   const removeItem = '<button id="remove" class="remove-btn">x</button>'
 
   // create a checkbox to use for checking completed items
-  const checkbox = '<input type="checkbox">'
+  const checkbox = '<input type="checkbox" tabindex="0">'
 
   // append the added element from the list
   $($addTaskBtn).parent().next('ol').append(`<li>${checkbox} <span data-id="editable-list-item">${$userInput}</span> ${removeItem}</li>`);
