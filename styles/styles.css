@@ -635,6 +635,7 @@ header p {
 
 .instructions-list {
   margin: -40px 0px 20px 10px;
+  max-width: 950px;
 }
 
 /* Task Board */
@@ -826,4 +827,8 @@ section {
   letter-spacing: normal;
   line-height: 2.2;
   font-weight: 400;
+}
+
+em {
+  font-style: italic;
 }

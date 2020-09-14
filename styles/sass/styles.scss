@@ -112,8 +112,10 @@ header p {
   font-weight: 600;
 }
 
+
 .instructions-list {
   margin: -40px 0px 20px 10px;
+  max-width: 950px;
 }
 
 /* Task Board */
@@ -286,4 +288,8 @@ section {
 
 .editable-list-item {
   @include primary-font (2.4rem, 2.2);
+}
+
+em {
+  font-style: italic;
 }
