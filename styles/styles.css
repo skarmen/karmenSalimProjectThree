@@ -727,7 +727,6 @@ input:active {
 .btn {
   color: #FFFFFF;
   background-color: #0E6EB8;
-  font-size: 2.2rem;
   border: none;
   border-radius: 5px;
   margin-left: 5px;
@@ -758,7 +757,7 @@ ol li {
   padding: 5px;
 }
 
-li:hover {
+.to-do-list li:hover {
   cursor: pointer;
 }
 

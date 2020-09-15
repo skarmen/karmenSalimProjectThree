@@ -69,7 +69,6 @@ section {
 }
 /* ========================== */
 
-
 /* header */
 header {
   height: 100%;
@@ -196,7 +195,6 @@ input:active {
 .btn {
   color: $secondary-text-color;
   background-color: $primary-color;
-  font-size: 2.2rem;
   border: none;
   border-radius: 5px;
   margin-left: 5px;
@@ -229,7 +227,7 @@ ol {
   }
 }
 
-li:hover{
+.to-do-list li:hover{
   cursor: pointer;
  }
 
