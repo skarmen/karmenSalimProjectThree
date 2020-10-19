@@ -8,7 +8,7 @@ Interactive To Do application built with jQuery. taskick is a simple productivit
 tasks in separate cards and menage their To Do items by editing, marking as complete or removing tasks from their cards.
 
 ## Demo
-[taskick](skarmen.github.io/taskick/)
+[taskick](https://skarmen.github.io/taskick/)
 
 ## Built with
   - jQuery
